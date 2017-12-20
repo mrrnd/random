@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html class="wide wow-animation" lang="en">
+  <head>
+    <!-- Site Title-->
+    <title>Random - Coming soon</title>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <!-- Stylesheets-->
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Montserrat:300,400,600,700%7CLato:300,300italic,400,700">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+		<!--[if lt IE 10]>
+    <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
+    <script src="js/html5shiv.min.js"></script>
+		<![endif]-->
+  </head>
+  <body>
+    <!-- Page-->
+    <div class="page context-dark text-center">
+      <!-- Page preloader-->
+      <div class="page-loader">
+        <div>
+          <div class="page-loader-body">
+            <div class="cssload-spinner"></div>
+          </div>
+        </div>
+      </div>
+      <div class="page-canvas">
+        <canvas class="page-canvas-fss" id="starfield"></canvas>
+        <div class="page-canvas-vignette"></div>
+      </div>
+      <div class="page-content">
+        <section>
+          <div class="shell">
+            <div class="range range-center">
+              <div class="cell-md-8 cell-sm-10"><a class="reveal-inline-block brand" href="index.html"><img src="images/rnd.png" width="166" height="45" alt=""></a>
+                <h2>Coming soon</h2>
+                <h1><span class="big">RANDOM</span></h1>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="popup" id="popup"><a class="popup-canvas" data-custom-toggle="#popup" data-custom-toggle-disable-on-blur="false" href="#"></a>
+        <div class="popup-content context-light">
+          <div class="popup-content-inner"><a class="popup-close" data-custom-toggle="#popup" data-custom-toggle-disable-on-blur="false" href="#"></a>
+            <h5 class="popup-title">Newsletter</h5>
+            <p>Subscribe to our newsletter and be the first to know about the latest news, special offers, and events.</p>
+            <!-- Mailchimp-->
+            <form class="mailchimp-mailform text-left" data-form-output="form-output-global" action="https://templatemonster.us15.list-manage.com/subscribe/post?u=ba5bb362073a413f48e4a7b90&amp;id=8dc95d9dec" method="post">
+              <div class="form-wrap">
+                <label class="form-label" for="inline-email">Enter your e-mail</label>
+                <input class="form-input" id="inline-email" type="email" name="email" data-constraints="@Email @Required">
+              </div>
+              <button class="button button-primary" type="submit">Subscribe</button>
+            </form>
+            <p><span class="small">We`ll only send you awesome content. We never spam.</span></p>
+          </div>
+        </div>
+      </div>
+      <div class="popup popup-left" id="popup-info"><a class="popup-canvas" data-custom-toggle="#popup-info" data-custom-toggle-disable-on-blur="false" href="#"></a>
+        <div class="popup-content">
+          <div class="popup-content-inner-2 context-light">
+            <div class="popup-content-inner"><a class="popup-close" data-custom-toggle="#popup-info" data-custom-toggle-disable-on-blur="false" href="#"></a>
+              <h5 class="text-center">Get in Touch with Us</h5>
+              <div class="text-sm-left">
+                <div class="unit unit-horizontal unit-vertical">
+                  <div class="unit__left"><span class="icon icon-primary mdi mdi-phone icon-sm"></span></div>
+                  <div class="unit__body">
+                    <p><a href="callto:#">1-800-1234-567</a></p>
+                  </div>
+                </div>
+                <div class="unit unit-horizontal unit-vertical">
+                  <div class="unit__left"><span class="icon icon-primary mdi mdi-map-marker icon-sm"></span></div>
+                  <div class="unit__body">
+                    <p><a href="#">2130 Washington Street, New York, NY 87654-8743 USA</a></p>
+                  </div>
+                </div>
+                <div class="unit unit-horizontal unit-vertical">
+                  <div class="unit__left"><span class="icon icon-primary mdi mdi-clock icon-sm"></span></div>
+                  <div class="unit__body">
+                    <p><span>Mn-Fr: 10 am-8 pm</span></p>
+                  </div>
+                </div>
+              </div>
+              <form class="range range-15 rd-mailform text-left" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
+                <div class="cell-sm-6">
+                  <div class="form-wrap form-wrap-validation">
+                    <label class="form-label" for="forms-name">First Name</label>
+                    <input class="form-input" id="forms-name" type="text" name="name" data-constraints="@Required">
+                  </div>
+                </div>
+                <div class="cell-sm-6">
+                  <div class="form-wrap form-wrap-validation">
+                    <label class="form-label" for="forms-surname">Last Name</label>
+                    <input class="form-input" id="forms-surname" type="text" name="name" data-constraints="@Required">
+                  </div>
+                </div>
+                <div class="cell-sm-6">
+                  <div class="form-wrap form-wrap-validation">
+                    <label class="form-label" for="forms-phone">Phone</label>
+                    <input class="form-input" id="forms-phone" type="text" name="phone" data-constraints="@Numeric @Required">
+                  </div>
+                </div>
+                <div class="cell-sm-6">
+                  <div class="form-wrap form-wrap-validation">
+                    <label class="form-label" for="forms-email">E-mail</label>
+                    <input class="form-input" id="forms-email" type="email" name="email" data-constraints="@Email @Required">
+                  </div>
+                </div>
+                <div class="cell-sm-12">
+                  <div class="form-wrap form-wrap-validation">
+                    <label class="form-label" for="forms-message">Message</label>
+                    <textarea class="form-input" id="forms-message" name="message" data-constraints="@Required"></textarea>
+                  </div>
+                </div>
+                <div class="cell-sm-12">
+                  <div class="form-button text-md-left">
+                    <button class="button button-primary" type="submit">Send Message</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="rd-google-map rd-google-map__model" data-marker="images/gmap_marker.png" data-marker-active="images/gmap_marker_active.png" data-styles="[ { &quot;featureType&quot;: &quot;administrative&quot;, &quot;elementType&quot;: &quot;labels.text.fill&quot;, &quot;stylers&quot;: [ { &quot;color&quot;: &quot;#444444&quot; } ] }, { &quot;featureType&quot;: &quot;landscape&quot;, &quot;elementType&quot;: &quot;all&quot;, &quot;stylers&quot;: [ { &quot;color&quot;: &quot;#f2f2f2&quot; } ] }, { &quot;featureType&quot;: &quot;poi&quot;, &quot;elementType&quot;: &quot;all&quot;, &quot;stylers&quot;: [ { &quot;visibility&quot;: &quot;off&quot; } ] }, { &quot;featureType&quot;: &quot;poi&quot;, &quot;elementType&quot;: &quot;labels.text&quot;, &quot;stylers&quot;: [ { &quot;visibility&quot;: &quot;off&quot; } ] }, { &quot;featureType&quot;: &quot;road&quot;, &quot;elementType&quot;: &quot;all&quot;, &quot;stylers&quot;: [ { &quot;saturation&quot;: -100 }, { &quot;lightness&quot;: 45 } ] }, { &quot;featureType&quot;: &quot;road.highway&quot;, &quot;elementType&quot;: &quot;all&quot;, &quot;stylers&quot;: [ { &quot;visibility&quot;: &quot;simplified&quot; } ] }, { &quot;featureType&quot;: &quot;road.arterial&quot;, &quot;elementType&quot;: &quot;labels.icon&quot;, &quot;stylers&quot;: [ { &quot;visibility&quot;: &quot;off&quot; } ] }, { &quot;featureType&quot;: &quot;transit&quot;, &quot;elementType&quot;: &quot;all&quot;, &quot;stylers&quot;: [ { &quot;visibility&quot;: &quot;off&quot; } ] }, { &quot;featureType&quot;: &quot;water&quot;, &quot;elementType&quot;: &quot;all&quot;, &quot;stylers&quot;: [ { &quot;color&quot;: &quot;#dbdbdb&quot; }, { &quot;visibility&quot;: &quot;on&quot; } ] } ]" data-zoom="12" data-x="-73.9874068" data-y="40.643180">
+            <ul class="map_locations">
+              <li data-y="40.643180" data-x="-73.9874068">
+                <p>9870 St Vincent Place, Glasgow, DC 45 Fr 45.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- PANEL-->
+    <div class="layout-panel-wrap">
+      <div class="layout-panel">
+        <button class="layout-panel-toggle" data-custom-toggle=".layout-panel-wrap" data-custom-toggle-disable-on-blur="true"><span></span></button>
+        <div class="layout-panel-content scroll-wrap">
+          <div class="layout-panel-inner isotope-wrap">
+            <!-- Isotope Content-->
+            <div class="layout-panel-main">
+              <div class="isotope" data-isotope-layout="fitRows" data-isotope-group="layouts">
+                <div class="isotope-item" data-filter="soon"><a class="thumbnail-small" href="index-main.html">
+                    <div class="thumbnail-small-image"><img src="images/layout-panel/soon.jpg" alt="" width="380" height="188"/></div>
+                    <div class="thumbnail-small-hover-image"><img src="images/layout-panel/soon.jpg" alt="" width="380" height="188"/></div>
+                    <div class="thumbnail-small-caption">
+                      <p class="thumbnail-small-header">Coming soon</p>
+                    </div></a>
+                </div>
+                <div class="isotope-item" data-filter="soon"><a class="thumbnail-small" href="index-glitch.html">
+                    <div class="thumbnail-small-image"><img src="images/layout-panel/soon-glitch.jpg" alt="" width="380" height="188"/></div>
+                    <div class="thumbnail-small-hover-image"><img src="images/layout-panel/soon-glitch.jpg" alt="" width="380" height="188"/></div>
+                    <div class="thumbnail-small-caption">
+                      <p class="thumbnail-small-header">Coming soon glitch</p>
+                    </div></a>
+                </div>
+                <div class="isotope-item" data-filter="soon"><a class="thumbnail-small" href="index-galaxy.html">
+                    <div class="thumbnail-small-image"><img src="images/layout-panel/soon-galaxy.jpg" alt="" width="380" height="188"/></div>
+                    <div class="thumbnail-small-hover-image"><img src="images/layout-panel/soon-galaxy.jpg" alt="" width="380" height="188"/></div>
+                    <div class="thumbnail-small-caption">
+                      <p class="thumbnail-small-header">Coming soon galaxy</p>
+                    </div></a>
+                </div>
+                <div class="isotope-item" data-filter="soon"><a class="thumbnail-small" href="index-gradient.html">
+                    <div class="thumbnail-small-image"><img src="images/layout-panel/soon-gradient.jpg" alt="" width="380" height="188"/></div>
+                    <div class="thumbnail-small-hover-image"><img src="images/layout-panel/soon-gradient.jpg" alt="" width="380" height="188"/></div>
+                    <div class="thumbnail-small-caption">
+                      <p class="thumbnail-small-header">Coming soon gradient</p>
+                    </div></a>
+                </div>
+                <div class="isotope-item" data-filter="soon"><a class="thumbnail-small" href="index-parallax.html">
+                    <div class="thumbnail-small-image"><img src="images/layout-panel/soon-parallax.jpg" alt="" width="380" height="188"/></div>
+                    <div class="thumbnail-small-hover-image"><img src="images/layout-panel/soon-parallax.jpg" alt="" width="380" height="188"/></div>
+                    <div class="thumbnail-small-caption">
+                      <p class="thumbnail-small-header">Coming soon parallax</p>
+                    </div></a>
+                </div>
+                <div class="isotope-item" data-filter="soon"><a class="thumbnail-small" href="index-particles.html">
+                    <div class="thumbnail-small-image"><img src="images/layout-panel/soon-particles.jpg" alt="" width="380" height="188"/></div>
+                    <div class="thumbnail-small-hover-image"><img src="images/layout-panel/soon-particles.jpg" alt="" width="380" height="188"/></div>
+                    <div class="thumbnail-small-caption">
+                      <p class="thumbnail-small-header">Coming soon particles</p>
+                    </div></a>
+                </div>
+                <div class="isotope-item" data-filter="soon"><a class="thumbnail-small" href="index-slider.html">
+                    <div class="thumbnail-small-image"><img src="images/layout-panel/soon-slider.jpg" alt="" width="380" height="188"/></div>
+                    <div class="thumbnail-small-hover-image"><img src="images/layout-panel/soon-slider.jpg" alt="" width="380" height="188"/></div>
+                    <div class="thumbnail-small-caption">
+                      <p class="thumbnail-small-header">Coming soon slider</p>
+                    </div></a>
+                </div>
+                <div class="isotope-item" data-filter="soon"><a class="thumbnail-small" href="index-star.html">
+                    <div class="thumbnail-small-image"><img src="images/layout-panel/soon-star.jpg" alt="" width="380" height="188"/></div>
+                    <div class="thumbnail-small-hover-image"><img src="images/layout-panel/soon-star.jpg" alt="" width="380" height="188"/></div>
+                    <div class="thumbnail-small-caption">
+                      <p class="thumbnail-small-header">Coming soon stars</p>
+                    </div></a>
+                </div>
+                <div class="isotope-item" data-filter="soon"><a class="thumbnail-small" href="index-wave.html">
+                    <div class="thumbnail-small-image"><img src="images/layout-panel/soon-wave.jpg" alt="" width="380" height="188"/></div>
+                    <div class="thumbnail-small-hover-image"><img src="images/layout-panel/soon-wave.jpg" alt="" width="380" height="188"/></div>
+                    <div class="thumbnail-small-caption">
+                      <p class="thumbnail-small-header">Coming soon waves</p>
+                    </div></a>
+                </div>
+                <div class="isotope-item" data-filter="soon"><a class="thumbnail-small" href="index-video.html">
+                    <div class="thumbnail-small-image"><img src="images/layout-panel/soon-video.jpg" alt="" width="380" height="188"/></div>
+                    <div class="thumbnail-small-hover-image"><img src="images/layout-panel/soon-video.jpg" alt="" width="380" height="188"/></div>
+                    <div class="thumbnail-small-caption">
+                      <p class="thumbnail-small-header">Coming soon video</p>
+                    </div></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END PANEL-->
+    <!-- Global Mailform Output-->
+    <div class="snackbars" id="form-output-global"></div>
+    <!-- Javascript-->
+    <script src="js/core.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
