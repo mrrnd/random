@@ -140,6 +140,45 @@ window.App = {
     //       console.error(error);
     //   }
     // });
+
+    var current_block = 0;
+    
+    // web3.eth.blockNumber.get(function(error, result) {
+    //   if(!error) {
+    //     // $('#'+).html(result);
+    //     current_block = result;
+    //   } else {
+    //     // $('#'+id1).html('error');
+    //     console.error(error);
+    //   }
+    // });
+    web3.eth.getBlockNumber((err, result) => {
+        current_block = result; 
+    });
+
+    randomContractInstance.endBlockNumber.call(function(error, result) {
+      if(!error) {
+        var div = result - current_block;
+        if(div < 0) { div = 0; }
+        $('#current_block').text(current_block + ' / ' + result + ' ('+div+' blocks left)');
+      } else {
+        $('#current_block').text('error');
+        console.error(error);
+      }
+    });
+    
+    
+    web3.eth.getBalance(current_address, function(error, result){
+        if(!error) {
+          $('#'+target_id).html( web3.fromWei( result.toNumber() ) + " ETH");
+          // console.log(result.toNumber());
+        } else {
+          $('#'+target_id).html('error');
+            console.error(error);
+        }
+    });
+
+    
     
     randomContractInstance.prizeFund.call( function(error, result) {
         if(!error) {
@@ -180,6 +219,8 @@ window.App = {
             console.error(error);
         }
     });
+
+
   },
 
   drawHistory: function(){

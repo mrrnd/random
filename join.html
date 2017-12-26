@@ -95,7 +95,7 @@
         <div class="container-fluid">
           <div class="row" style="display: flex; justify-content: center">
             <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6">
-              <h1 style="margin-bottom: 20px">Lottery stats</h1>
+              <h1 style="">Lottery stats</h1>
 
               <div class="panel panel-transparent">
                 <div class="panel-heading">
@@ -122,19 +122,31 @@
                 <div class="panel-body">
                   <div class="btn-group btn-group-justified" role="group" aria-label="...">
                     <div class="btn-group" role="group">
-                      <button type="button" class="btn btn-default btn-no-border active" data-slick-control=".lottery-slider" data-slide-number="0">Daily</button>
+                      <button type="button" class="btn btn-default btn-no-border active" data-slick-control=".lottery-slider" data-slide-number="0">
+                        Daily<br/>
+                        <span id="current_block"></span>
+                      </button>
                     </div>
                     <div class="btn-group" role="group">
-                      <button type="button" class="btn btn-default btn-no-border" data-slick-control=".lottery-slider" data-slide-number="1">Weekly</button>
+                      <button type="button" class="btn btn-default btn-no-border" data-slick-control=".lottery-slider" data-slide-number="1">
+                        Weekly
+                        <br/>
+                        <span id="current_block"></span>
+                      </button>
                     </div>
                     <div class="btn-group" role="group">
-                      <button type="button" class="btn btn-default btn-no-border" data-slick-control=".lottery-slider" data-slide-number="2">Monthly</button>
+                      <button type="button" class="btn btn-default btn-no-border" data-slick-control=".lottery-slider" data-slide-number="2">
+                        Monthly
+                        <br/>
+                        <span id="current_block"></span>
+                      </button>
                     </div>
                   </div>
 
                   <div class="lottery-slider">
                     <div class="row">
                       <div class="col-sm-6 col-xs-12">
+
                         <h4>Prize Fund: <span id="prize_fund_0" class="lottery-text">0 ETH</span></h4>
                         <h4>Jackpot1: <span id="jackpot_val_01" class="lottery-text">0 ETH</span></h4>
                         <h4>Jackpot2: <span id="jackpot_val_02" class="lottery-text">0 ETH</span></h4>
