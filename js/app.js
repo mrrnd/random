@@ -60,6 +60,10 @@ function checkSync() {
 var accounts;
 var account;
 
+var countWinner = 0;
+var winners = [];
+var winnings = [];
+
 window.App = {
   start: function() {
     var self = this;
@@ -125,15 +129,18 @@ window.App = {
             console.error(error);
         }
     });
-    randomContractInstance.jackPot.call(1, function(error, result) {
-        if(!error) {
-          $('#jackpot_val_'+target_id).html( web3.fromWei(result.toNumber()) ); //.html( web3.fromWei(result.toNumber()) );
-          // console.log(result.toNumber());
-        } else {
-          $('#jackpot_val_'+target_id).html('error');
-            console.error(error);
-        }
-    });
+
+    // randomContractInstance.jackPot.call(i, function(error, result) {
+    //   console.log("i: " + i)
+    //   if(!error) {
+    //     $('#'+id1).html( web3.fromWei(result.toNumber()) ); //.html( web3.fromWei(result.toNumber()) );
+    //     // console.log(result.toNumber());
+    //   } else {
+    //     $('#'+id1).html('error');
+    //       console.error(error);
+    //   }
+    // });
+    
     randomContractInstance.prizeFund.call( function(error, result) {
         if(!error) {
           $('#prize_fund_'+target_id).html( web3.fromWei(result.toNumber()) ); //.html( web3.fromWei(result.toNumber()) );
@@ -143,6 +150,54 @@ window.App = {
             console.error(error);
         }
     });
+
+    randomContractInstance.getRecentWinnersCount.call(function(error, result) {
+        if(!error) {
+            countWinner = result.toNumber()
+            App.drawHistory();
+            // console.log(result.toNumber());
+        } else {
+            console.error(error);
+        }
+    });
+
+    randomContractInstance.getRecentWinners.call(function(error, result) {
+        if(!error) {
+            winners = result;
+            App.drawHistory();
+            // console.log(result.toNumber());
+        } else {
+            console.error(error);
+        }
+    });
+
+    randomContractInstance.getRecentWinnings.call(function(error, result) {
+        if(!error) {
+            winnings = result;
+            App.drawHistory();
+            // console.log(result.toNumber());
+        } else {
+            console.error(error);
+        }
+    });
+  },
+
+  drawHistory: function(){
+    if(countWinner == 0 || countWinner != winners.length || countWinner != winnings.length){
+      $('#panel_history').hide();
+      console.log("draw history returned");
+      return
+    }
+    content = "";
+    for(i = 0; i < countWinner; i++){
+      innerContent = "";
+      innerContent += "<td>"+winners[i]+"</td>";
+      innerContent += "<td>"+winnings[i].toNumber()+"</td>";
+
+      content += "<tr>"+innerContent+"</tr>";
+    }
+    $('#content_history').html(content);
+    $('#panel_history').show();
   },
 
   getETHBalance: function(addr, target_id) {
