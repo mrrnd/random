@@ -1,0 +1,152 @@
+@media only screen and (max-width: 1024px) {
+.navbar-toggle {
+display:block;
+position:fixed;
+right:10px;
+top:15px;
+z-index:9999;
+}
+.navbar-toggle:hover{ 
+border:1px solid #999;
+}
+/*menu block*/
+.navbar-default{ position:fixed; border-bottom:1px groove rgba(255,255,255,0); top:0px;}
+.navbar-brand { left:30px;}
+.sticky-nav .navbar-brand{position:absolute; top:10px;}
+.sticky-nav{ position:fixed; height:70px; top:0px; left:0px;}
+.navbar-brand img{ width:90%;}
+#main-menu {
+  position:absolute;
+  left:0px;
+  width: 100%;
+  height:100%;
+  background: rgba(0,0,70,1); /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, rgba(0,0,70,1) , rgba(28,181,224,1)); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, rgba(0,0,70,1) , rgba(28,181,224,1)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  z-index: 1;
+  text-align:center;
+  overflow:auto;
+  overflow-x: hidden;
+}
+
+.menu-init {
+  opacity: 1;
+  top:-100%;
+    -webkit-transition: top 1s  cubic-bezier(.165, 0.840, 0.440, 1.000), opacity 0.4s linear;
+  -moz-transition: top 1s  cubic-bezier(.165, 0.840, 0.440, 1.000), opacity 0.4s linear;
+  -o-transition: top 1s  cubic-bezier(.165, 0.840, 0.440, 1.000), opacity 0.4s linear;
+  transition: top 1s  cubic-bezier(.165, 0.840, 0.440, 1.000), opacity 0.4s linear;
+}
+
+.menu-show {
+  opacity: 1;
+  top:0px;
+  -webkit-transition: top 1s  cubic-bezier(.165, 0.840, 0.440, 1.000), opacity 0.4s linear;
+  -moz-transition: top 1s  cubic-bezier(.165, 0.840, 0.440, 1.000), opacity 0.4s linear;
+  -o-transition: top 1s  cubic-bezier(.165, 0.840, 0.440, 1.000), opacity 0.4s linear;
+  transition: top 1s  cubic-bezier(.165, 0.840, 0.440, 1.000), opacity 0.4s linear;
+}
+
+nav {
+	margin:0 auto;
+	margin-top:100px;
+	margin-bottom:20px;
+	position:relative;
+	left:20px;
+	top:0px;
+	z-index:999;
+}
+
+nav ul li {
+	display:block;
+	margin-right:15px;
+	text-align:left;
+	}
+	nav a {
+	display:block;
+	padding:10px;
+	line-height: 30px;
+}
+nav ul ul {
+	position:relative;
+	top: 0px;
+	margin-left:15px;
+}
+nav ul ul li {
+	background:rgba(21,23,29,0);
+}
+nav ul ul ul li {
+	position: relative;
+	top:0px; 
+	left:0px;
+}
+nav ul ul li a{ line-height:20px; font-weight:300; font-size:11pt;}
+/*menu block end*/
+
+}
+
+@media only screen and (max-width: 980px) {
+.btn-home-border{ margin-left:0px;}
+}
+
+@media only screen and (max-width: 800px) {
+
+}
+
+@media only screen and (max-width: 768px) {
+	
+}
+
+@media only screen and (max-width: 600px) {
+.navbar-brand {left:15px;}
+}
+
+
+@media(max-width:414px) {
+.hp-home{ display:none;}
+.navbar-default{  border-bottom:1px groove rgba(255,255,255,0);}
+.navbar-brand {left:5px;}
+h1{ font-size:24pt; }
+h2{ font-size:20pt; }
+h3{ font-size:18pt; }
+h4{ font-size:16pt; }
+h5{ font-size:14pt; }
+h6{ font-size:12pt; }
+p{ font-size:12px;}
+
+#home h1{ font-size:26pt; font-weight:400; letter-spacing:1px;}
+#home h3{ font-size:18pt; letter-spacing:1px; margin:5px 0 0 0;}
+#home p{ font-size:10pt; font-weight:300; letter-spacing:1.2px; margin:10px 0 20px 0;}
+
+.wrap-price{ margin-bottom:20px;}
+.wrap-news{margin-bottom:20px;}
+
+.social-icons{ margin-top:10px;}
+.right{ text-align:left; float:left; }
+#subscribe input#subscribeemail {
+margin: 0 0 0 0 ;
+width:250px;
+}
+.subscribesuccess {
+width: 250px;
+}
+
+#subscribe .subscribeerror {
+width: 250px;
+}
+#pagination{ margin-bottom:40px;}
+}
+
+@media(max-width:375px) {
+	
+}
+
+@media(max-width:360px) {
+.service img{ margin-bottom:20px;}
+.service .name{ margin-top:0px;}
+}
+
+@media(max-width:320px) {
+
+}
+
