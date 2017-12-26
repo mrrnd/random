@@ -30,7 +30,7 @@ checkSync();
 
 // var current_address = '0x00a329c0648769A73afAc7F9381E08FB43dBEA72';
 
-var contract_address = '0xE5987fB6bAD2F0Dc41A7Ee0BC8c9D98802C467fD';
+var contract_address = '0xe88d26c2BCd7a38ffd22aCEc1B98a9AF4C6611fD';
 
 var randomContract = web3.eth.contract(abi);
 var randomContractInstance = randomContract.at(contract_address);
@@ -99,7 +99,7 @@ window.App = {
 
     // getContractTX();
 
-    arrayContractAddress = ["0xe5987fb6bad2f0dc41a7ee0bc8c9d98802c467fd", "0xe5987fb6bad2f0dc41a7ee0bc8c9d98802c467fd", "0xe5987fb6bad2f0dc41a7ee0bc8c9d98802c467fd"]
+    arrayContractAddress = ["0xe88d26c2BCd7a38ffd22aCEc1B98a9AF4C6611fD", "0xe88d26c2BCd7a38ffd22aCEc1B98a9AF4C6611fD", "0xe88d26c2BCd7a38ffd22aCEc1B98a9AF4C6611fD"]
     randomContract = web3.eth.contract(abi);
 
     arrayContractAddress.forEach(function(item, i, array) {
