@@ -110,7 +110,8 @@
                         <button class="btn-home-border" onclick="goTouch();">GO</button>
                       </div>
                     </div>
-                    <h5>Balance: <b id="balance"></b></h5>
+                    <h5>Account Balance: <b id="account_balance"></b></h5>
+                    <h5>Lottery Balance: <b id="balance"></b></h5>
                   </div>
                 </div>
               </div>
@@ -277,6 +278,7 @@
     <script src="js/map.js" type="text/javascript"></script>  
     <!-- black JS -->
     <script src="js/black.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script type="text/javascript" src="slick-js/slick.js"></script>
     <script type="text/javascript" src="js/dsp-custom.js"></script>
     <script type="text/javascript">
@@ -287,7 +289,9 @@
         return false;
       }
       current_address = addr;
+      Cookies.set('user_address', current_address);
       App.getETHBalance(addr, 'balance');
+      App.getBalance(addr, 'balance');
     }
     </script>
   </body>

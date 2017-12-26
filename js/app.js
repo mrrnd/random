@@ -35,7 +35,9 @@ var contract_address = '0xe88d26c2BCd7a38ffd22aCEc1B98a9AF4C6611fD';
 var randomContract = web3.eth.contract(abi);
 var randomContractInstance = randomContract.at(contract_address);
 
-var current_address = '0x008Ea31FfB285206099e5D5d546147a64aEC99C6';
+var current_address = '0xfEdAC0b99F3e7956A90Dcb8697fb5FdA506725A5';
+
+
 
 
 function checkSync() {
@@ -99,6 +101,13 @@ window.App = {
 
     // getContractTX();
 
+
+    var cc = Cookies.get('user_address');
+    if(cc != undefined) {
+      current_address = cc;
+    }
+    $('#input_address').val(current_address);
+
     arrayContractAddress = ["0xe88d26c2BCd7a38ffd22aCEc1B98a9AF4C6611fD", "0xe88d26c2BCd7a38ffd22aCEc1B98a9AF4C6611fD", "0xe88d26c2BCd7a38ffd22aCEc1B98a9AF4C6611fD"]
     randomContract = web3.eth.contract(abi);
 
@@ -110,7 +119,7 @@ window.App = {
       }
       randomContractInstance = randomContract.at(contract_address);
       self.getInfo(i);
-      self.getBalance(current_address,i);
+      self.getTicketsCount(current_address,i);
     });
   },
 
@@ -242,18 +251,33 @@ window.App = {
   },
 
   getETHBalance: function(addr, target_id) {
+    console.log("Getting Balance for "+ addr);
     web3.eth.getBalance(current_address, function(error, result){
         if(!error) {
-          $('#'+target_id).html( web3.fromWei( result.toNumber() ) + " ETH");
+          $('#account_balance').html( web3.fromWei( result.toNumber() ) + " ETH");
           // console.log(result.toNumber());
         } else {
-          $('#'+target_id).html('error');
+          $('#account_balance').html('error');
             console.error(error);
         }
     });
   },
 
   getBalance: function(addr, target_id) {
+    console.log("Getting Lottery Balance for "+ addr);
+    console.log(target);
+    randomContractInstance.balanceOf.call(addr, function(error, result) {
+        if(!error) {
+          $('#balance').html( web3.fromWei( result.toNumber() ) + ' ETH' ); //.html( web3.fromWei( result.toNumber() ) );
+          console.log(result.toNumber());
+        } else {
+          $('#balance').html('error');
+          console.error(error);
+        }
+    });
+  },
+
+  getTicketsCount: function(addr, target_id) {
     console.log("Getting Balance for "+ addr);
     target = 'tickets_purchased_'+target_id;
     console.log(target);
