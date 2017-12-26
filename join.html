@@ -18,6 +18,7 @@
     <meta name="application-name" content="RANDOM">
     <meta name="theme-color" content="#ffffff">
 
+    <link href="css/app.css" media="all" rel="stylesheet" type="text/css">
     <!-- Bootstrap CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- font themify CSS -->
@@ -135,7 +136,9 @@
                     <div class="row">
                       <div class="col-sm-6 col-xs-12">
                         <h4>Prize Fund: <span id="prize_fund_0" class="lottery-text">0 ETH</span></h4>
-                        <h4>Jackpot: <span id="jackpot_val_0" class="lottery-text">0 ETH</span></h4>
+                        <h4>Jackpot1: <span id="jackpot_val_01" class="lottery-text">0 ETH</span></h4>
+                        <h4>Jackpot2: <span id="jackpot_val_02" class="lottery-text">0 ETH</span></h4>
+                        <h4>Jackpot3: <span id="jackpot_val_03" class="lottery-text">0 ETH</span></h4>
                       </div>
                       <div class="col-sm-6 col-xs-12">
                         <h4>Tickets Sold: <span id="tickets_count_0" class="lottery-text">0</span></h4>
@@ -145,7 +148,9 @@
                     <div class="row">
                       <div class="col-sm-6 col-xs-12">
                         <h4>Prize Fund: <span id="prize_fund_1" class="lottery-text">0 ETH</span></h4>
-                        <h4>Jackpot: <span id="jackpot_val_1" class="lottery-text">0 ETH</span></h4>
+                        <h4>Jackpot: <span id="jackpot_val_11" class="lottery-text">0 ETH</span></h4>
+                        <h4>Jackpot: <span id="jackpot_val_12" class="lottery-text">0 ETH</span></h4>
+                        <h4>Jackpot: <span id="jackpot_val_13" class="lottery-text">0 ETH</span></h4>
                       </div>
                       <div class="col-sm-6 col-xs-12">
                         <h4>Tickets Sold: <span id="tickets_count_1" class="lottery-text">0</span></h4>
@@ -155,7 +160,9 @@
                     <div class="row">
                       <div class="col-sm-6 col-xs-12">
                         <h4>Prize Fund: <span id="prize_fund_2" class="lottery-text">0 ETH</span></h4>
-                        <h4>Jackpot: <span id="jackpot_val_2" class="lottery-text">0 ETH</span></h4>
+                        <h4>Jackpot: <span id="jackpot_val_21" class="lottery-text">0 ETH</span></h4>
+                        <h4>Jackpot: <span id="jackpot_val_22" class="lottery-text">0 ETH</span></h4>
+                        <h4>Jackpot: <span id="jackpot_val_23" class="lottery-text">0 ETH</span></h4>
                       </div>
                       <div class="col-sm-6 col-xs-12">
                         <h4>Tickets Sold: <span id="tickets_count_2" class="lottery-text">0</span></h4>
@@ -192,10 +199,31 @@
                   <h6>to get <span id="amount_txt"></span>  RND tickets</h6>
                 </div>
               </div>
+
+              <div id="panel_history" class="panel panel-transparent" hidden>
+                <div class="panel-heading">
+                  <h2 class="panel-title">Last winners</h2>
+                </div>
+                <div class="panel-body">
+                  <table class="table table-striped">
+                    <thead> 
+                      <tr>
+                        <td>Address winner</td>
+                        <td>Amount</td>
+                      </tr>
+                    </thead>
+                    <tbody id="content_history">
+
+                    </tdody>
+                  </table>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
       </section>
+
       <!-- home end -->
       
       <!-- footer -->
