@@ -5,3 +5,9 @@ table tr, table tr{
 .table-striped>tbody>tr:nth-of-type(odd) {
      background-color: transparent !important; 
 }
+
+
+#current_block {
+	font-size: 10pt;
+	margin: 5px;
+}
