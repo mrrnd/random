@@ -1,44 +1,23 @@
 // var baseUrl = '<%= request.base_url %>';
 
-
 if (typeof web3 !== 'undefined') {
   web3 = new Web3(web3.currentProvider);
 } else {
   // set the provider you want from Web3.providers
-  // web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
-  web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:8545"));
-  //web3 = new Web3(new Web3.providers.HttpProvider("https://bchain.dsplus.pro"));
+  var web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:8545"));
+  // web3 = new Web3(new Web3.providers.HttpProvider("https://bchain.dsplus.pro"));
 }
+
 var wei = 1000000000000000000;
 
 checkSync();
-//window.setInterval(function(){ checkSync(); }, 10000);
 
-
-// var abi = [{"constant":true,"inputs":[],"name":"remaining_for_sale","outputs":[{"name":"remaining_coins","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_nextState","type":"uint8"}],"name":"setTokenState","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_value","type":"uint256"}],"name":"approve","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"TOKEN_ICO1_LIMIT","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_from","type":"address"},{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transferFrom","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"balances","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"TOKEN_PRESALE_LIMIT","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"standard","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"current_state","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"balance","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"destroy","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_contract_address","type":"address"}],"name":"setAllowedContract","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"get_token_state","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"TOKEN_ICO2_LIMIT","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"allowed_contract","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"buy","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transfer","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_to","type":"address"}],"name":"withdrawEther","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"TOKEN_ICO3_LIMIT","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"fpct_packet_size","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"},{"name":"_spender","type":"address"}],"name":"allowance","outputs":[{"name":"remaining","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"ownerPrice","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_buyer","type":"address"}],"name":"buyTokens","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":true,"inputs":[],"name":"owner_MIN_LIMIT","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"soldAmount","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_newPrice","type":"uint128"}],"name":"setOwnerPrice","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"payable":true,"stateMutability":"payable","type":"fallback"},{"anonymous":false,"inputs":[{"indexed":false,"name":"from","type":"address"},{"indexed":false,"name":"to","type":"address"},{"indexed":false,"name":"amount","type":"uint256"}],"name":"Sent","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"sender","type":"address"},{"indexed":false,"name":"eth","type":"uint256"},{"indexed":false,"name":"fbt","type":"uint256"}],"name":"Buy","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"sender","type":"address"},{"indexed":false,"name":"to","type":"address"},{"indexed":false,"name":"eth","type":"uint256"}],"name":"Withdraw","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"newState","type":"uint8"}],"name":"StateSwitch","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"from","type":"address"},{"indexed":true,"name":"to","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Transfer","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_owner","type":"address"},{"indexed":true,"name":"_spender","type":"address"},{"indexed":false,"name":"_value","type":"uint256"}],"name":"Approval","type":"event"}];
-
-// var randomContractInstance = randomContract.at(addr_TESTNET);
-
-// const artifacts = require('../build/contracts/Lottery.json');
-// const contract = require('truffle-contract');
-// var randomContract = contract(artifacts); //
-
-// var contract_address = '0xd9AC87A357934993beabA91DE165f0D2B4c201f4';
-
-// var randomContract = web3.eth.contract(abi);
-// var randomContractInstance = randomContract.at(contract_address);
-
-// var current_address = '0x00a329c0648769A73afAc7F9381E08FB43dBEA72';
-
-var contract_address = '0xe88d26c2BCd7a38ffd22aCEc1B98a9AF4C6611fD';
+var contract_address = '0xc18d0ae6e73fdf3d05cd2ae260617f92378cfaef';
 
 var randomContract = web3.eth.contract(abi);
 var randomContractInstance = randomContract.at(contract_address);
 
 var current_address = '0xfEdAC0b99F3e7956A90Dcb8697fb5FdA506725A5';
-
-
-
 
 function checkSync() {
   // $("#sync_status").text("checking...");
@@ -151,7 +130,7 @@ window.App = {
     // });
 
     var current_block = 0;
-    
+
     // web3.eth.blockNumber.get(function(error, result) {
     //   if(!error) {
     //     // $('#'+).html(result);
@@ -161,8 +140,8 @@ window.App = {
     //     console.error(error);
     //   }
     // });
-    web3.eth.getBlockNumber((err, result) => {
-        current_block = result; 
+    web3.eth.getBlockNumber(function(err, result) {
+        current_block = result;
     });
 
     randomContractInstance.endBlockNumber.call(function(error, result) {
@@ -175,8 +154,7 @@ window.App = {
         console.error(error);
       }
     });
-    
-    
+
     web3.eth.getBalance(current_address, function(error, result){
         if(!error) {
           $('#'+target_id).html( web3.fromWei( result.toNumber() ) + " ETH");
@@ -187,8 +165,6 @@ window.App = {
         }
     });
 
-    
-    
     randomContractInstance.prizeFund.call( function(error, result) {
         if(!error) {
           $('#prize_fund_'+target_id).html( web3.fromWei(result.toNumber()) ); //.html( web3.fromWei(result.toNumber()) );
@@ -201,7 +177,7 @@ window.App = {
 
     randomContractInstance.getRecentWinnersCount.call(function(error, result) {
         if(!error) {
-            countWinner = result.toNumber()
+            countWinner = result.toNumber();
             App.drawHistory();
             // console.log(result.toNumber());
         } else {
@@ -253,6 +229,8 @@ window.App = {
   getETHBalance: function(addr, target_id) {
     console.log("Getting Balance for "+ addr);
     web3.eth.getBalance(current_address, function(error, result){
+      callback && callback(error, result);
+
         if(!error) {
           $('#account_balance').html( web3.fromWei( result.toNumber() ) + " ETH");
           // console.log(result.toNumber());
@@ -263,19 +241,19 @@ window.App = {
     });
   },
 
-  getBalance: function(addr, target_id) {
-    console.log("Getting Lottery Balance for "+ addr);
-    console.log(target);
-    randomContractInstance.balanceOf.call(addr, function(error, result) {
-        if(!error) {
-          $('#balance').html( web3.fromWei( result.toNumber() ) + ' ETH' ); //.html( web3.fromWei( result.toNumber() ) );
-          console.log(result.toNumber());
-        } else {
-          $('#balance').html('error');
-          console.error(error);
-        }
-    });
-  },
+    getBalance: function (addr, target_id) {
+        console.log("Getting Lottery Balance for " + addr);
+        console.log(target);
+        randomContractInstance.balanceOf.call(addr, function (error, result) {
+            if (!error) {
+                $('#' + target_id).html(web3.fromWei(result.toNumber()) + ' ETH'); //.html( web3.fromWei( result.toNumber() ) );
+                console.log(result.toNumber());
+            } else {
+                $('#' + target_id).html('error');
+                console.error(error);
+            }
+        });
+    },
 
   getTicketsCount: function(addr, target_id) {
     console.log("Getting Balance for "+ addr);
@@ -340,6 +318,18 @@ window.addEventListener('load', function() {
   App.start();
 });
 
+function joinUpdateAddress() {
+    addr = $('#input_address').val();
+
+    if(addr.charAt(0) !== "0" || addr.charAt(1) !== "x" || addr.length !== 42) {
+        alert("Input correct Ethereum address");
+        return false;
+    }
+
+    current_address = addr;
+    App.getETHBalance(addr, 'account_balance');
+    App.getBalance(addr, 'balance')
+}
 
 function getContractTX() {
   var filter=web3.eth.filter({fromBlock:0,toBlock:'latest',topics:[contract_address]});
