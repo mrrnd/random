@@ -151,7 +151,7 @@ randomApp.factory('Lottery', function($q, $log, web3) {
                 .then(function() { return lottery.loadLiveBlocks() })
                 .then(function() {
                     lottery.instance().Buy(null, {
-                        fromBlock: 2371585,
+                        fromBlock: 4837532,
                         toBlock: 'latest'
                     }).get(function(error,result) {
                         if (error) {
@@ -190,7 +190,7 @@ randomApp.factory('Lottery', function($q, $log, web3) {
                 .then(function() { return lottery.loadLiveBlocks() })
                 .then(function() {
                     lottery.instance().Withdraw(null, {
-                        fromBlock: 2371585,
+                        fromBlock: 4837532,
                         toBlock: 'latest'
                     }).get(function(error,result) {
                         if (error) {
