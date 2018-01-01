@@ -195,15 +195,15 @@ window.App = {
         }
     });
 
-    randomContractInstance.getRecentWinnings.call(function(error, result) {
-        if(!error) {
-            winnings = result;
-            App.drawHistory();
-            // console.log(result.toNumber());
-        } else {
-            console.error(error);
-        }
-    });
+    // randomContractInstance.getRecentWinnings.call(function(error, result) {
+    //     if(!error) {
+    //         winnings = result;
+    //         App.drawHistory();
+    //         // console.log(result.toNumber());
+    //     } else {
+    //         console.error(error);
+    //     }
+    // });
 
 
   },
