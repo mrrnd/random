@@ -130,12 +130,12 @@ randomApp.factory('Lottery', function($q, $log, web3) {
             )
         };
 
-        this.loadCountWinner = function() {
-            return instance$call('getRecentWinnersCount').then(
-                function(result) { return lottery.countWinner = result.toNumber() },
-                function() { lottery.countWinner = 'error' }
-            )
-        };
+        // this.loadCountWinner = function() {
+        //     return instance$call('getRecentWinnersCount').then(
+        //         function(result) { return lottery.countWinner = result.toNumber() },
+        //         function() { lottery.countWinner = 'error' }
+        //     )
+        // };
 
         /**
          *
@@ -277,7 +277,7 @@ randomApp.factory('Lottery', function($q, $log, web3) {
             $q.all([
                 this.loadTicketsNum().then(d.notify),
                 this.loadJackpotA().then(d.notify),
-                this.loadCountWinner().then(d.notify),
+                // this.loadCountWinner().then(d.notify),
                 this.loadJackpotB().then(d.notify),
                 this.loadJackpotC().then(d.notify),
                 this.loadEndBock().then(d.notify),
