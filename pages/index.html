@@ -1,0 +1,319 @@
+<!-- home -->
+<section aria-label="home" class="mainbg no-top no-bottom" id="home" ng-init="init()">
+  <!-- intro -->
+  <div class="container">
+    <div class="row">
+      <div class="overlay-main v-align">
+
+        <div class="col-md-7 col-xs-11">
+
+          <h3 class="onStep" data-animation="bounceInLeft" data-time="1200">WELCOME TO</h3>
+          <h1 class="onStep" data-animation="bounceInLeft" data-time="1500">RANDOM</h1>
+          <p class="onStep" data-animation="bounceInLeft" data-time="1700">THE FIRST TRUTH IN YOUR LIFE</p>
+
+          <div class="btn-home-border onStep" data-animation="bounceInLeft" data-time="1900">
+            <a target="_blank" href="https://t.me/mr_random_io">TELEGRAM</a>
+          </div>
+
+          <div class="btn-home-border onStep" data-animation="bounceInLeft" data-time="1900">
+            <a target="_blank" href="https://github.com/mrrnd/random">GITHUB</a>
+          </div>
+
+          <div class="btn-home-border onStep" data-animation="bounceInLeft" data-time="1900">
+            <a target="_blank" href="https://twitter.com/Mr_Random_io">TWITTER</a>
+          </div>
+
+          <br/>
+          <a href="#!/join">
+          <div class="btn-home onStep" data-animation="bounceInLeft" data-time="1900">
+            JOIN
+          </div>
+          </a>
+
+        </div>
+
+        <div class="col-md-3 col-xs-11 hp-home onStep" data-animation="bounceInUp" data-time="2300">
+          <img alt="hp" class="img-responsive about-img" src="img/icons/logo.png">
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- intro end -->
+
+</section>
+<!-- home end -->
+
+<!-- about -->
+<section class="whitepage no-top no-bottom" id="about">
+
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-6 col-xs-12">
+        <div class="about onStep" data-animation="fadeInLeft" data-time="300">
+          <h1>ABOUT RANDOM
+            <span class="devider-left"></span>
+          </h1>
+          <p>
+            <em>
+              RANDOM is a lottery working on blockchain.
+            </em>
+
+            Its uniqueness is very simple — it is the fairest lottery in the World. It is possible because the process
+            is being carried out using Ethereum Blockchain. It uses Smart Contracts, it fully excludes the human factor.
+            RANDOM platform uses RND Tokens instead of lottery tickets, the cost of one RND Token is 0,01 ETH.<br />
+            Join daily, weekly or monthly lotteries.<br />
+            <br />
+            RANDOM — the first truth in your life.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-xs-11">
+        <div class="onStep" data-animation="fadeInRight" data-time="600">
+          <img class="img-responsive" alt="img" src="img/icons/round_v1_noglow_basic.png">
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+<!-- about end -->
+
+<!-- section feature -->
+<section class="whitepage no-top no-bottom" id="feature">
+
+  <!-- feature -->
+  <div class="container">
+    <div class="row">
+
+      <div class="onStep" data-animation="fadeInUp" data-time="300">
+
+        <div class="col-md-4">
+          <div class="main-serv text-center">
+            <div class="icon ti-lock"></div>
+            <h1>SECURE</h1>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="main-serv text-center">
+            <div class="icon ti-check-box"></div>
+            <h1>CLEAN CODE</h1>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="main-serv text-center">
+            <div class="icon-blockchain"></div>
+            <h1>BLOCKCHAIN</h1>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+  <!-- feature end -->
+
+</section>
+<!-- section feature end -->
+
+<!-- DSP: blue slider -->
+<section slick autoplay="false" dots="true" arrows="true" as-nav-for="#lottery-slider-tx" id="lottery-slider" class="blue-page slider">
+  <div class="slide">
+    <div class="slide-content">
+      <div>
+        <h1>Daily RANDOM Lottery</h1>
+        <p class="about_lottery">
+          Based on Ethereum Blockchain using the smart contract.<br/>
+          RND Token is used instead of "lottery ticket".<br/>
+          1 RND Cost is 0,01 ETH.<br/>
+          It starts with certain block number and ends at the block being generated approximately after 24 hours.<br/>
+          4% of participating tokens win.<br/>
+          Senior Jackpot - 10% of the prize fund, Average Jackpot - 4% of the prize fund, Junior Jackpot - 1% of prize fund.<br/>
+          Equal distribution of the rest part of the prize fund among other winning tickets (tokens).<br/>
+          Winning chance at 10th participation is 40%.<br/>
+          <br/>
+          RANDOM — The first truth in your life
+        </p>
+      </div>
+      <div class="text-center">
+        <h2 class="big">Jackpot</h2>
+        <h1 class="big" ng-bind="Random.lottery('daily').jackpotA + ' ETH'"></h1>
+      </div>
+    </div>
+  </div>
+  <div class="slide">
+    <div class="slide-content">
+      <div>
+        <h1>Weekly RANDOM Lottery</h1>
+        <p class="about_lottery">
+          Based on Ethereum Blockchain using the smart contract.<br/>
+          RND Token is used instead of "lottery ticket".<br/>
+          1 RND Cost is 0,01 ETH.<br/>
+          It starts with certain block number and ends at the block being generated approximately after 1 week.<br/>
+          4% of participating tokens win.<br/>
+          Senior Jackpot - 10% of the prize fund, Average Jackpot - 4% of the prize fund, Junior Jackpot - 1% of prize fund.<br/>
+          Equal distribution of the rest part of the prize fund among other winning tickets (tokens).<br/>
+          Winning chance at 10th participation is 40%.<br/>
+          <br/>
+          RANDOM — The first truth in your life
+        </p>
+      </div>
+      <div class="text-center">
+        <h2 class="big">Jackpot</h2>
+        <!--h1 class="big" ng-bind="Random.lottery('weekly').jackpotA + ' ETH'"></h1-->
+        <h1 class="big">Cooming soon</h1>
+      </div>
+    </div>
+  </div>
+  <div class="slide">
+    <div class="slide-content">
+      <div>
+        <h1>Monthly RANDOM Lottery</h1>
+        <p class="about_lottery">
+          Based on Ethereum Blockchain using the smart contract.<br/>
+          RND Token is used instead of "lottery ticket".<br/>
+          1 RND Cost is 0,01 ETH.<br/>
+          It starts with certain block number and ends at the block being generated approximately after 1 month.<br/>
+          4% of participating tokens win.<br/>
+          Senior Jackpot - 10% of the prize fund, Average Jackpot - 4% of the prize fund, Junior Jackpot - 1% of prize fund.<br/>
+          Equal distribution of the rest part of the prize fund among other winning tickets (tokens).<br/>
+          Winning chance at 10th participation is 40%.<br/>
+          <br/>
+          RANDOM — The first truth in your life
+        </p>
+      </div>
+      <div class="text-center">
+        <h2 class="big">Jackpot</h2>
+        <!--h1 class="big" ng-bind="Random.lottery('monthly').jackpotA + ' ETH'"></h1-->
+        <h1 class="big">Cooming soon</h1>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- DSP: blue slider end -->
+
+<section class="blue-page">
+  <div slick autoplay="false" dots="false" as-nav-for="#lottery-slider" arrows="false" id="lottery-slider-tx" class="container slider-tx">
+    <div>
+      <h1 class="text-center onStep" data-animation="fadeInUp" data-time="0">TX HISTORY <span class="devider-cont"></span></h1>
+
+      <h3>Tokens purchase</h3>
+      <table class="table">
+        <thead>
+        <tr><td>Address</td><td>ETH</td></tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="tx in purchase.daily track by $index"><td ng-bind="tx.sender"></td><td ng-bind="tx.eth"></td></tr>
+        </tbody>
+      </table>
+
+      <h3>Winnings</h3>
+      <table class="table">
+        <thead>
+        <tr><td>Address</td><td>ETH</td></tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="tx in withdraws.daily track by $index"><td ng-bind="tx.to"></td><td ng-bind="tx.eth"></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <h1 class="text-center onStep" data-animation="fadeInUp" data-time="0">TX HISTORY <span class="devider-cont"></span></h1>
+    </div>
+    <div>
+      <h1 class="text-center onStep" data-animation="fadeInUp" data-time="0">TX HISTORY <span class="devider-cont"></span></h1>
+    </div>
+  </div>
+</section>
+
+<section class="whitepage" id="about2">
+
+  <div class="container-fluid">
+    <div class="row smart-row">
+
+      <div class="col-md-6 text-center github-block">
+        <h1>GITHUB AN APPROVED</h1>
+        <img src="img/github.png"/>
+        <br/><br/>
+        <a href="https://github.com/mrrnd/random" target="_blank">Github link</a>
+      </div>
+
+      <div class="col-md-6 text-center smart-block">
+        <img src="img/icons/round_v1_noglow_basic.png" style=""/>
+        <span class="title">SMART CONTRACT</span>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <h2 style="text-transform: uppercase;">Smart contract code & web-site code available on GitHub</h2>
+        <p>
+          
+          <br/>
+          <a href="https://github.com/mrrnd/random" target="_blank">Github Link</a>
+        </p>
+        <br/>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- brands-->
+<!--<div class="onStep" data-animation="fadeInUp" data-time="900">-->
+<!--<div class="space-double"></div>-->
+<!--<div class="space-single"></div>-->
+<!--<div class="container-fluid">-->
+<!--<div class="row">-->
+
+<!--<div class="owl-carousel" id="owl-brand">-->
+
+<!--<div class="item">-->
+<!--<img alt="background" src="img/ourclients/1.png">-->
+<!--</div>-->
+
+<!--<div class="item">-->
+<!--<img alt="background" src="img/ourclients/2.png">-->
+<!--</div>-->
+
+<!--<div class="item">-->
+<!--<img alt="background" src="img/ourclients/3.png">-->
+<!--</div>-->
+
+<!--<div class="item">-->
+<!--<img alt="background" src="img/ourclients/4.png">-->
+<!--</div>-->
+
+<!--<div class="item">-->
+<!--<img alt="background" src="img/ourclients/5.png">-->
+<!--</div>-->
+
+<!--<div class="item">-->
+<!--<img alt="background" src="img/ourclients/6.png">-->
+<!--</div>-->
+
+<!--<div class="item">-->
+<!--<img alt="background" src="img/ourclients/7.png">-->
+<!--</div>-->
+
+<!--<div class="item">-->
+<!--<img alt="background" src="img/ourclients/8.png">-->
+<!--</div>-->
+
+<!--<div class="item">-->
+<!--<img alt="background" src="img/ourclients/9.png">-->
+<!--</div>-->
+
+<!--</div>-->
+
+<!--</div>-->
+<!--</div>-->
+<!--<div class="space-double"></div>-->
+<!--<div class="space-single"></div>-->
+<!--</div>-->
+<!-- brands end-->

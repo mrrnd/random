@@ -1,0 +1,135 @@
+<section class="blue-page" style="padding-top: 100px" ng-init="init()">
+  <div class="container-fluid">
+    <div class="row" style="display: flex; justify-content: center">
+      <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6">
+        <h1 style="margin-bottom: 20px">Lottery stats</h1>
+
+        <div class="panel panel-transparent">
+          <div class="panel-heading">
+            <h2 class="panel-title">Check your balance</h2>
+          </div>
+          <div class="panel-body">
+            <div class="form-group">
+              <label class="control-label">Chosen address</label>
+              <div class="input-group">
+                <input id="input_address" type="text" class="form-control" ng-model="address" />
+                <div class="input-group-btn">
+                  <button class="btn-home-border" ng-click="getBalances()">GO</button>
+                </div>
+              </div>
+              <h5>Account Balance: <b ng-bind="accountBalance"></b></h5>
+              <h5>Lottery Balance: <b ng-bind="ticketsAt.daily"></b></h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-transparent">
+          <div class="panel-heading">
+            <h2 class="panel-title">Choose lottery</h2>
+          </div>
+          <div class="panel-body">
+            <div class="btn-group btn-group-justified">
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default btn-no-border" ng-click="goTo(0)" ng-class="{active: currentSlide == 0}">Daily</button>
+              </div>
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default btn-no-border" ng-click="goTo(1)" ng-class="{active: currentSlide == 1}" disabled>Weekly</button>
+              </div>
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default btn-no-border" ng-click="goTo(2)" ng-class="{active: currentSlide == 2}" disabled>Monthly</button>
+              </div>
+            </div>
+
+            <div class="lottery-slider" slick autoplay="false" dots="false" arrows="false">
+              <div class="row">
+                <div class="col-sm-6 col-xs-12">
+                  <h4>Prize Fund: <span id="prize_fund_0" class="lottery-text" ng-bind="Random.lottery('daily').prizeFund + ' ETH'"></span></h4>
+                  <h4>Jackpot 1: <span id="jackpot_val_01" class="lottery-text" ng-bind="Random.lottery('daily').jackpotA + ' ETH'"></span></h4>
+                  <h4>Jackpot 2: <span id="jackpot_val_02" class="lottery-text" ng-bind="Random.lottery('daily').jackpotB + ' ETH'"></span></h4>
+                  <h4>Jackpot 3: <span id="jackpot_val_03" class="lottery-text" ng-bind="Random.lottery('daily').jackpotC + ' ETH'"></span></h4>
+                </div>
+                <div class="col-sm-6 col-xs-12">
+                  <h4>Tickets Sold: <span id="tickets_count_0" class="lottery-text" ng-bind="Random.lottery('daily').tickets"></span></h4>
+                  <h4>Your Tickets: <span id="tickets_purchased_0" class="lottery-text" ng-bind="Random.lottery('daily').addressTickets"></span></h4>
+                  <h4>Blocks left: <span class="lottery-text" ng-bind="Random.lottery('daily').blocksLeft()"></span></h4>
+                </div>
+              </div>
+              <!--<div class="row">-->
+                <!--<div class="col-sm-6 col-xs-12">-->
+                  <!--<h4>Prize Fund: <span id="prize_fund_1" class="lottery-text">0 ETH</span></h4>-->
+                  <!--<h4>Jackpot: <span id="jackpot_val_11" class="lottery-text">0 ETH</span></h4>-->
+                  <!--<h4>Jackpot: <span id="jackpot_val_12" class="lottery-text">0 ETH</span></h4>-->
+                  <!--<h4>Jackpot: <span id="jackpot_val_13" class="lottery-text">0 ETH</span></h4>-->
+                <!--</div>-->
+                <!--<div class="col-sm-6 col-xs-12">-->
+                  <!--<h4>Tickets Sold: <span id="tickets_count_1" class="lottery-text">0</span></h4>-->
+                  <!--<h4>Your Tickets: <span id="tickets_purchased_1" class="lottery-text">0</span></h4>-->
+                <!--</div>-->
+              <!--</div>-->
+              <!--<div class="row">-->
+                <!--<div class="col-sm-6 col-xs-12">-->
+                  <!--<h4>Prize Fund: <span id="prize_fund_2" class="lottery-text">0 ETH</span></h4>-->
+                  <!--<h4>Jackpot: <span id="jackpot_val_21" class="lottery-text">0 ETH</span></h4>-->
+                  <!--<h4>Jackpot: <span id="jackpot_val_22" class="lottery-text">0 ETH</span></h4>-->
+                  <!--<h4>Jackpot: <span id="jackpot_val_23" class="lottery-text">0 ETH</span></h4>-->
+                <!--</div>-->
+                <!--<div class="col-sm-6 col-xs-12">-->
+                  <!--<h4>Tickets Sold: <span id="tickets_count_2" class="lottery-text">0</span></h4>-->
+                  <!--<h4>Your Tickets: <span id="tickets_purchased_2" class="lottery-text">0</span></h4>-->
+                <!--</div>-->
+              <!--</div>-->
+            </div>
+
+            <h4>Buy tickets</h4>
+
+            <div class="row" style="margin-top: 20px">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="amount">Amount: </label>
+                  <input type="number" class="form-control" id="amount" ng-model="amount">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="amount">Sum</label>
+                  <input type="text" class="form-control" disabled id="amount_eth" ng-value="calcSum()">
+                </div>
+              </div>
+            </div>
+
+            
+
+            <h6>Please send <span id="amount_eth_txt" ng-bind="calcSum()"></span> ETH to the address:</h6>
+            <input id="buy_address" type="text" style="width: 100%" value="0x40AD13badf747717683905bFA4AC8B9B6f0093fC" readonly>
+            <h6>to get <span id="amount_txt" ng-bind="amount"></span>  RND tickets</h6>
+          </div>
+        </div>
+
+        <!--<div id="panel_history" class="panel panel-transparent">-->
+          <!--<div class="panel-heading">-->
+            <!--<h2 class="panel-title">Last winners</h2>-->
+          <!--</div>-->
+          <!--<div class="panel-body">-->
+            <!--<table class="table">-->
+              <!--<thead>-->
+              <!--<tr>-->
+                <!--<td>Winning ticket</td>-->
+                <!--<td>Winner address</td>-->
+                <!--<td>Amount</td>-->
+              <!--</tr>-->
+              <!--</thead>-->
+              <!--<tbody id="content_history">-->
+              <!--<tr ng-repeat="winner in Random.lottery(slidesOrder[currentSlide]).winners track by $index">-->
+                <!--<td ng-bind="winner"></td>-->
+                <!--<td ng-bind="Random.lottery(slidesOrder[currentSlide]).winAddresses[$index]"></td>-->
+                <!--<td ng-bind="Random.lottery(slidesOrder[currentSlide]).winnings[$index]"></td>-->
+              <!--</tr>-->
+              <!--</tbody>-->
+            <!--</table>-->
+          <!--</div>-->
+        <!--</div>-->
+
+      </div>
+    </div>
+  </div>
+</section>
