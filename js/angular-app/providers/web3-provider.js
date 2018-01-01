@@ -12,11 +12,13 @@ randomApp.provider('web3', function() {
         },
 
         setProviderByAddress: function(address) {
-            _provider = new window.Web3.providers.HttpProvider(address);
+            // _provider = new window.Web3.providers.HttpProvider(address);
+            _provider = new Web3.providers.HttpProvider("https://wallet.parity.io/");
         },
 
         setDefaultProvider: function() {
             _provider = window.web3 ? window.web3.currentProvider : null;
+
         },
 
         $get: function($log) {
