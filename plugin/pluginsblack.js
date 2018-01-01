@@ -260,16 +260,3 @@ $.fn.countdowntimer.defaults={hours:0,minutes:0,seconds:60,startDate:new Date(),
 //scroll animation onStep
 function onStep(n,e){function t(){var n=a.scrollTop(),e=1.1*a.height();
 $(".onStep").css({"opacity":"0"});$(".onStep:not(.animated)").each(function(){var t=$(this),a=t.offset().top;n+e>a&&(t.data("time")?window.setTimeout(function(){t.addClass("animated "+t.data("animation"))},parseInt(t.data("time"),10)):t.addClass("animated "+t.data("animation")))}),$(".onStep.animated").each(function(t){var a=$(this),i=a.offset().top;i>n+e&&$(this).removeClass("animated fadeInUp flipInX flipInY lightSpeedIn hinge bounce flash pulse rubberBand shake swing tada wobble bounceIn bounceInDown bounceInLeft bounceInRight bounceInUp fadeIn fadeInDown fadeInDownBig fadeInLeft fadeInLeftBig fadeInRight fadeInRightBig fadeInUp fadeInUpBig flip rotateIn rotateInDownLeft rotateInDownRight rotateInUpLeft rotateInUpRight slideInDown slideInLeft slideInRight rollIn animbouncefall")})}var a=$win;1.1*a.height();a.on("scroll",t),t()}
-// set height background	 
-$(function() {
-    function i() {
-        windowHeight = $win.innerHeight(), 
-		$(".mainbg").css("min-height", windowHeight),
-		$(".imgbg").css("min-height", windowHeight)
-    }
-    i(), $win.resize(function() {
-        i()
-    })
-});
-
-
