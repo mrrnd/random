@@ -51,7 +51,7 @@
                 <div class="col-sm-6 col-xs-12">
                   <h4>Tickets Sold: <span id="tickets_count_0" class="lottery-text" ng-bind="Random.lottery('daily').tickets"></span></h4>
                   <h4>Your Tickets: <span id="tickets_purchased_0" class="lottery-text" ng-bind="Random.lottery('daily').addressTickets"></span></h4>
-                  <h4>Blocks left: <span class="lottery-text" ng-bind="Random.lottery('daily').blocksLeft()"></span></h4>
+                  <h4>Blocks left: <span class="lottery-text" ng-bind="Random.lottery('daily').blocksLeft(currenctBlock)"></span></h4>
                 </div>
               </div>
               <!--<div class="row">-->

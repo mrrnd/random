@@ -56,15 +56,6 @@ randomApp.controller('joinController', function ($scope, $timeout, $interval, $c
         return this.amount * 0.01;
     };
 
-    $scope.blocksLeft = function () {
-        if ($scope.lotteryInfo[0] && $scope.lotteryInfo[0].endBlock && $scope.currentBlock) {
-            var d = $scope.lotteryInfo[0].endBlock - $scope.currentBlock;
-            return d > 0 ? d : 0;
-        }
-
-        return 0;
-    };
-
     $scope.$watch('amount', function(newVal,oldVal) {
         if (newVal === null) return;
 

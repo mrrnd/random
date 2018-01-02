@@ -122,7 +122,8 @@
 <!-- section feature end -->
 
 <!-- DSP: blue slider -->
-<section slick autoplay="false" dots="true" arrows="true" as-nav-for="#lottery-slider-tx" id="lottery-slider" class="blue-page slider">
+<!--<section slick autoplay="false" dots="true" arrows="true" as-nav-for="#lottery-slider-tx" id="lottery-slider" class="blue-page slider">-->
+<section slick autoplay="false" dots="true" arrows="true" id="lottery-slider" class="blue-page slider">
   <div class="slide">
     <div class="slide-content">
       <div>
@@ -142,7 +143,7 @@
       </div>
       <div class="text-center">
         <h2 class="big">Jackpot</h2>
-        <h1 class="big" ng-bind="Random.lottery('daily').jackpotA + ' ETH'"></h1>
+        <h1 ng-bind="Random.lottery('daily').jackpotA + ' ETH'"></h1>
       </div>
     </div>
   </div>
@@ -165,8 +166,8 @@
       </div>
       <div class="text-center">
         <h2 class="big">Jackpot</h2>
-        <!--h1 class="big" ng-bind="Random.lottery('weekly').jackpotA + ' ETH'"></h1-->
-        <h1 class="big">Cooming soon</h1>
+        <!--h1 ng-bind="Random.lottery('weekly').jackpotA + ' ETH'"></h1-->
+        <h1>Cooming soon</h1>
       </div>
     </div>
   </div>
@@ -189,47 +190,47 @@
       </div>
       <div class="text-center">
         <h2 class="big">Jackpot</h2>
-        <!--h1 class="big" ng-bind="Random.lottery('monthly').jackpotA + ' ETH'"></h1-->
-        <h1 class="big">Cooming soon</h1>
+        <!--h1 ng-bind="Random.lottery('monthly').jackpotA + ' ETH'"></h1-->
+        <h1>Cooming soon</h1>
       </div>
     </div>
   </div>
 </section>
 <!-- DSP: blue slider end -->
 
-<section class="blue-page">
-  <div slick autoplay="false" dots="false" as-nav-for="#lottery-slider" arrows="false" id="lottery-slider-tx" class="container slider-tx">
-    <div>
-      <h1 class="text-center onStep" data-animation="fadeInUp" data-time="0">TX HISTORY <span class="devider-cont"></span></h1>
+<!--<section class="blue-page">-->
+  <!--<div slick autoplay="false" dots="false" as-nav-for="#lottery-slider" arrows="false" id="lottery-slider-tx" class="container slider-tx">-->
+    <!--<div>-->
+      <!--<h1 class="text-center onStep" data-animation="fadeInUp" data-time="0">TX HISTORY <span class="devider-cont"></span></h1>-->
 
-      <h3>Tokens purchase</h3>
-      <table class="table">
-        <thead>
-        <tr><td>Address</td><td>ETH</td></tr>
-        </thead>
-        <tbody>
-        <tr ng-repeat="tx in purchase.daily track by $index"><td ng-bind="tx.sender"></td><td ng-bind="tx.eth"></td></tr>
-        </tbody>
-      </table>
+      <!--<h3>Tokens purchase</h3>-->
+      <!--<table class="table">-->
+        <!--<thead>-->
+        <!--<tr><td>Address</td><td>ETH</td></tr>-->
+        <!--</thead>-->
+        <!--<tbody>-->
+        <!--<tr ng-repeat="tx in purchase.daily track by $index"><td ng-bind="tx.sender"></td><td ng-bind="tx.eth"></td></tr>-->
+        <!--</tbody>-->
+      <!--</table>-->
 
-      <h3>Winnings</h3>
-      <table class="table">
-        <thead>
-        <tr><td>Address</td><td>ETH</td></tr>
-        </thead>
-        <tbody>
-        <tr ng-repeat="tx in withdraws.daily track by $index"><td ng-bind="tx.to"></td><td ng-bind="tx.eth"></td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div>
-      <h1 class="text-center onStep" data-animation="fadeInUp" data-time="0">TX HISTORY <span class="devider-cont"></span></h1>
-    </div>
-    <div>
-      <h1 class="text-center onStep" data-animation="fadeInUp" data-time="0">TX HISTORY <span class="devider-cont"></span></h1>
-    </div>
-  </div>
-</section>
+      <!--<h3>Winnings</h3>-->
+      <!--<table class="table">-->
+        <!--<thead>-->
+        <!--<tr><td>Address</td><td>ETH</td></tr>-->
+        <!--</thead>-->
+        <!--<tbody>-->
+        <!--<tr ng-repeat="tx in withdraws.daily track by $index"><td ng-bind="tx.to"></td><td ng-bind="tx.eth"></td></tr>-->
+        <!--</tbody>-->
+      <!--</table>-->
+    <!--</div>-->
+    <!--<div>-->
+      <!--<h1 class="text-center onStep" data-animation="fadeInUp" data-time="0">TX HISTORY <span class="devider-cont"></span></h1>-->
+    <!--</div>-->
+    <!--<div>-->
+      <!--<h1 class="text-center onStep" data-animation="fadeInUp" data-time="0">TX HISTORY <span class="devider-cont"></span></h1>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</section>-->
 
 <section class="whitepage" id="about2">
 
@@ -238,7 +239,7 @@
 
       <div class="col-md-6 text-center github-block">
         <h1>GITHUB AN APPROVED</h1>
-        <img src="img/github.png"/>
+        <img src="img/github.png" style="width: 70%;"/>
         <br/><br/>
         <a href="https://github.com/mrrnd/random" target="_blank">Github link</a>
       </div>
