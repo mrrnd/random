@@ -12,8 +12,10 @@ randomApp.provider('web3', function() {
         },
 
         setProviderByAddress: function(address) {
-            // _provider = new window.Web3.providers.HttpProvider(address);
-            _provider = new Web3.providers.HttpProvider("https://wallet.parity.io/");
+            //provider = new window.Web3.providers.HttpProvider(address);
+            // _provider = new Web3.providers.HttpProvider("http://185.22.62.189:8546");
+            _provider = new Web3.providers.HttpProvider("http://185.22.61.111:8545");
+            // _provider = new Web3.providers.HttpProvider("http://wallet.parity.io");
         },
 
         setDefaultProvider: function() {
