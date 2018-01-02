@@ -1,6 +1,10 @@
-randomApp.controller('homeController', function ($scope, Random) {
+randomApp.controller('homeController', function ($scope, Random, $location) {
     $scope.withdraws = {};
     $scope.purchase = {};
+
+    $scope.toJoin = function() {
+        $location.path('/join')
+    };
 
     Random.lottery('daily').loadPrevLotteryWithdraws().then(function (result) {
         console.log($scope.withdraws.daily = result);
