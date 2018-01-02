@@ -1,5 +1,5 @@
 var randomApp = angular.module('random', ['ngRoute', 'ngCookies'])
-    .run(function($rootScope, $location, $, $q, Random, web3) {
+    .run(function($rootScope, $location, $, $q, $log, Random, web3) {
         $rootScope.Random = Random;
         Random.loadAll();
 
@@ -325,4 +325,8 @@ var randomApp = angular.module('random', ['ngRoute', 'ngCookies'])
         $rootScope.onPath = function(path) {
             return $location.path() === path
         };
+
+        web3.eth.getSyncing( function (error, result) {
+            $log.log("[web3] Syncing:", result);
+        });
     });

@@ -8,9 +8,16 @@ randomApp.provider('Random', function () {
             _abi = abi
         },
 
-        addLottery: function(name, address) {
+        /**
+         * Add a new lottery to collection.
+         * @param {string} name Name of this lottery you can access it with
+         * @param {string} address Contract address
+         * @param {int} creationBlock Block where this contract was created
+         * @return {boolean} true if lottery successfully created, false if lottery with given name already exists
+         */
+        addLottery: function(name, address, creationBlock) {
             if (_addresses[name] === undefined) {
-                _addresses[name] = address;
+                _addresses[name] = [address, creationBlock];
                 return true;
             }
             
@@ -52,7 +59,7 @@ randomApp.provider('Random', function () {
                  */
                 lottery: function(name) {
                     if (!_addresses[name]) return undefined;
-                    return (_lotteries[name] || (_lotteries[name] = new Lottery(name, _addresses[name], this.contract())));
+                    return (_lotteries[name] || (_lotteries[name] = new Lottery(name, _addresses[name][0], this.contract(), _addresses[name][1])));
                 },
 
                 loadAll: function() {

@@ -1,17 +1,18 @@
 randomApp.factory('Lottery', function($q, $log, web3) {
     /**
-     * @param {string} name
-     * @param {string} address
-     * @param {object} contract
+     * @param {string} name Name of this lottery you can access it with
+     * @param {string} address Contract address
+     * @param {object} contract Web3 contract
+     * @param {int} creationBlock Block where this contract was created
      * @constructor
-     * @class Lottery
      */
-    function Lottery(name, address, contract) {
+    function Lottery(name, address, contract, creationBlock) {
         var lottery = this;
 
         var _instance;
         var _contract = contract;
         var _address = address;
+        var _creationBlock = creationBlock;
 
         this.name = name;
         this.tickets = null;
@@ -151,7 +152,7 @@ randomApp.factory('Lottery', function($q, $log, web3) {
                 .then(function() { return lottery.loadLiveBlocks() })
                 .then(function() {
                     lottery.instance().Buy(null, {
-                        fromBlock: 4837532,
+                        fromBlock: _creationBlock,
                         toBlock: 'latest'
                     }).get(function(error,result) {
                         if (error) {
@@ -190,7 +191,7 @@ randomApp.factory('Lottery', function($q, $log, web3) {
                 .then(function() { return lottery.loadLiveBlocks() })
                 .then(function() {
                     lottery.instance().Withdraw(null, {
-                        fromBlock: 4837532,
+                        fromBlock: _creationBlock,
                         toBlock: 'latest'
                     }).get(function(error,result) {
                         if (error) {

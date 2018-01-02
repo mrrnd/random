@@ -90,10 +90,6 @@ randomApp.controller('joinController', function ($scope, $timeout, $interval, $c
         }
     });
 
-    web3.eth.getSyncing( function (error, result) {
-        $log.log("[web3] Syncing:", result);
-    });
-
     web3.eth.getBlockNumber(function (err, result) {
         $scope.currenctBlock = result;
         $log.log('[web3] Current block:', result);
