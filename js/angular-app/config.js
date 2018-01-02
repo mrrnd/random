@@ -4,7 +4,7 @@ randomApp.config(function($locationProvider, RandomProvider, web3Provider) {
 
     // web3Provider.setProviderByAddress('http://bchain02.parity.io');
     
-    web3Provider.setProviderByAddress('https://bchain02.dsplus.pro:8545');
+    web3Provider.setProviderByAddress('https://bchain02.dsplus.pro');
 
     RandomProvider.addLottery('daily', '0x40AD13badf747717683905bFA4AC8B9B6f0093fC');
     RandomProvider.addLottery('weekly', '0x40AD13badf747717683905bFA4AC8B9B6f0093fC');
