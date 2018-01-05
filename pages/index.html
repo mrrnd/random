@@ -11,17 +11,23 @@
           <h1 class="onStep" data-animation="bounceInLeft" data-time="1500">RANDOM</h1>
           <p class="onStep" data-animation="bounceInLeft" data-time="1700">THE FIRST TRUTH IN YOUR LIFE</p>
 
+          <a target="_blank" href="https://t.me/mr_random_io">
           <div class="btn-home-border onStep" data-animation="bounceInLeft" data-time="1900">
-            <a target="_blank" href="https://t.me/mr_random_io">TELEGRAM</a>
+            TELEGRAM
           </div>
+          </a>
 
+          <a target="_blank" href="https://github.com/mrrnd/random">
           <div class="btn-home-border onStep" data-animation="bounceInLeft" data-time="1900">
-            <a target="_blank" href="https://github.com/mrrnd/random">GITHUB</a>
+            GITHUB
           </div>
+          </a>
 
+          <a target="_blank" href="https://twitter.com/Mr_Random_io">
           <div class="btn-home-border onStep" data-animation="bounceInLeft" data-time="1900">
-            <a target="_blank" href="https://twitter.com/Mr_Random_io">TWITTER</a>
+            TWITTER
           </div>
+          </a>
 
           <br/>
           <a href="#!/join">
@@ -205,28 +211,28 @@
     <div>
       <h1 class="text-center onStep" data-animation="fadeInUp" data-time="0">TX HISTORY <span class="devider-cont"></span></h1>
 
-      <div class="text-center" style="color: black">
-        <h3><a class="btn-home" style="width: auto; padding-left: 20px; padding-right: 20px" href="https://etherscan.io/address/0x40ad13badf747717683905bfa4ac8b9b6f0093fc">View TX history at Etherscan</a></h3>
-      </div>
-      <!--<h3>Tokens purchase</h3>-->
-      <!--<table class="table">-->
-        <!--<thead>-->
-        <!--<tr><td>Address</td><td>ETH</td></tr>-->
-        <!--</thead>-->
-        <!--<tbody>-->
-        <!--<tr ng-repeat="tx in purchase.daily track by $index"><td ng-bind="tx.sender"></td><td ng-bind="tx.eth"></td></tr>-->
-        <!--</tbody>-->
-      <!--</table>-->
+      <!--<div class="text-center" style="color: black">-->
+        <!--<h3><a class="btn-home" style="width: auto; padding-left: 20px; padding-right: 20px" href="https://etherscan.io/address/0x40ad13badf747717683905bfa4ac8b9b6f0093fc">View TX history at Etherscan</a></h3>-->
+      <!--</div>-->
+      <h3>Tokens purchase</h3>
+      <table class="table">
+        <thead>
+        <tr><td>Address</td><td>ETH</td></tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="tx in purchase.daily track by $index"><td ng-bind="tx.sender"></td><td ng-bind="tx.eth"></td></tr>
+        </tbody>
+      </table>
 
-      <!--<h3>Winnings</h3>-->
-      <!--<table class="table">-->
-        <!--<thead>-->
-        <!--<tr><td>Address</td><td>ETH</td></tr>-->
-        <!--</thead>-->
-        <!--<tbody>-->
-        <!--<tr ng-repeat="tx in withdraws.daily track by $index"><td ng-bind="tx.to"></td><td ng-bind="tx.eth"></td></tr>-->
-        <!--</tbody>-->
-      <!--</table>-->
+      <h3>Winnings</h3>
+      <table class="table">
+        <thead>
+        <tr><td>Address</td><td>ETH</td></tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="tx in withdraws.daily track by $index"><td ng-bind="tx.to"></td><td ng-bind="tx.eth"></td></tr>
+        </tbody>
+      </table>
     </div>
     <div>
       <h1 class="text-center onStep" data-animation="fadeInUp" data-time="0">TX HISTORY <span class="devider-cont"></span></h1>
