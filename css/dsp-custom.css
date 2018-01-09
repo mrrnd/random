@@ -107,6 +107,16 @@ input[type="number"] {
  * CUSTOM STYLES
  */
 
+@keyframes spin {
+  0% { transform: rotate(0)  }
+  100% { transform: rotate(360deg) }
+}
+
+@keyframes spinb {
+  0% { transform: rotate(0) }
+  100% { transform: rotate(-360deg) }
+}
+
 .icon-blockchain {
   background: url(../img/icons/1069806-200.png) center no-repeat;
   background-size: contain;
@@ -264,3 +274,33 @@ input[type="number"] {
   font-size: 12pt !important;
   line-height:22pt !important;
 }
+
+.loader {
+  position: relative;
+  color: transparent;
+}
+
+.loader::before, .loader::after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 0;
+  top: 0;
+}
+
+.loader::before {
+  border: 3px solid transparent;
+  border-radius: 10px;
+  border-left-color: white;
+  border-right-color: white;
+  animation: infinite linear;
+  animation-name: spin;
+  animation-duration: 1s;
+}
+
+/*.loader::after {*/
+  /*border: 1px solid white;*/
+  /*border-radius: 10px;*/
+/*}*/
