@@ -1,4 +1,4 @@
-randomApp.factory('Lottery', function($q, $log, web3) {
+randomApp.factory('Lottery', function($q, $log, $http, web3, EtherscanAPI) {
     /**
      * @param {string} name Name of this lottery you can access it with
      * @param {string} address Contract address
@@ -15,19 +15,8 @@ randomApp.factory('Lottery', function($q, $log, web3) {
         var _creationBlock = creationBlock;
 
         this.name = name;
-        this.tickets = null;
-        this.endBlock = null;
-        this.startBlock = null;
-        this.liveBlocks = null;
-        this.prizeFund = null;
-        // this.addressTickets = null;
-        // this.winners = null;
-        // this.winnings = null;
-        this.winAddresses = null;
 
-        this.jackpotA = null;
-        this.jackpotB = null;
-        this.jackpotC = null;
+        this.init();
 
         /**
          * @param fn
@@ -131,13 +120,6 @@ randomApp.factory('Lottery', function($q, $log, web3) {
             )
         };
 
-        // this.loadCountWinner = function() {
-        //     return instance$call('getRecentWinnersCount').then(
-        //         function(result) { return lottery.countWinner = result.toNumber() },
-        //         function() { lottery.countWinner = 'error' }
-        //     )
-        // };
-
         /**
          *
          * @param {int} [n=30]
@@ -148,31 +130,58 @@ randomApp.factory('Lottery', function($q, $log, web3) {
 
             var d = $q.defer();
 
-            this.loadStartBlock()
-                .then(function() { return lottery.loadLiveBlocks() })
-                .then(function() {
-                    lottery.instance().Buy(null, {
-                        fromBlock: _creationBlock,
-                        toBlock: 'latest'
-                    }).get(function(error,result) {
-                        if (error) {
-                            d.reject(error);
-                        } else {
-                            d.resolve(result.slice(-n)
-                                .sort(function(a, b) {
-                                    if (a.blockNumber > b.blockNumber) return 1;
-                                    if (a.blockNumber < b.blockNumber) return -1;
-                                    return 0;
-                                })
-                                .map(function(tx) {
-                                    return {
-                                        eth: web3.fromWei(tx.args.eth.toNumber()),
-                                        sender: tx.args.sender
-                                    }
-                                }));
-                        }
-                    });
-                });
+            /**** Get events from Etherscan API ****/
+            EtherscanAPI.logs.getLogs({
+                fromBlock: _creationBlock,
+                toBlock: 'latest',
+                address: _address,
+                topic0: '0xe3d4187f6ca4248660cc0ac8b8056515bac4a8132be2eca31d6d0cc170722a7e'
+            }).then(
+                function(result) {
+                    d.resolve(result.slice(-n)
+                        .sort(function (a, b) {
+                            var abn = parseInt(a.blockNumber, 16);
+                            var bbn = parseInt(b.blockNumber, 16);
+
+                            if (abn > bbn) return 1;
+                            if (abn < bbn) return -1;
+                            return 0;
+                        })
+                        .map(function (tx) {
+                            return {
+                                eth: web3.fromWei(tx.data),
+                                sender: web3.fromDecimal(tx.topics[1])
+                            }
+                        }));
+                }
+            );
+
+            /**** Get events from a node ****/
+            // this.loadStartBlock()
+            //     .then(function() { return lottery.loadLiveBlocks() })
+            //     .then(function() {
+            //         lottery.instance().Buy(null, {
+            //             fromBlock: _creationBlock,
+            //             toBlock: 'latest'
+            //         }).get(function(error,result) {
+            //             if (error) {
+            //                 d.reject(error);
+            //             } else {
+            //                 d.resolve(result.slice(-n)
+            //                     .sort(function(a, b) {
+            //                         if (a.blockNumber > b.blockNumber) return 1;
+            //                         if (a.blockNumber < b.blockNumber) return -1;
+            //                         return 0;
+            //                     })
+            //                     .map(function(tx) {
+            //                         return {
+            //                             eth: web3.fromWei(tx.args.eth.toNumber()),
+            //                             sender: tx.args.sender
+            //                         }
+            //                     }));
+            //             }
+            //         });
+            //     });
 
             return d.promise;
         };
@@ -187,84 +196,60 @@ randomApp.factory('Lottery', function($q, $log, web3) {
 
             var d = $q.defer();
 
-            this.loadStartBlock()
-                .then(function() { return lottery.loadLiveBlocks() })
-                .then(function() {
-                    lottery.instance().Withdraw(null, {
-                        fromBlock: _creationBlock,
-                        toBlock: 'latest'
-                    }).get(function(error,result) {
-                        if (error) {
-                            d.reject(error);
-                        } else {
-                            d.resolve(result.slice(-n)
-                                .sort(function(a, b) {
-                                    if (a.blockNumber > b.blockNumber) return 1;
-                                    if (a.blockNumber < b.blockNumber) return -1;
-                                    return 0;
-                                })
-                                .map(function(tx) {
-                                    return {
-                                        eth: web3.fromWei(tx.args.eth.toNumber()),
-                                        to: tx.args.to
-                                    }
-                                }));
-                        }
-                    });
-                });
+            /**** Get events from Etherscan API ****/
+            EtherscanAPI.logs.getLogs({
+                fromBlock: _creationBlock,
+                address: _address,
+                topic0: '0x9b1bfa7fa9ee420a16e124f794c35ac9f90472acc99140eb2f6447c714cad8eb'
+            }).then(
+                function(result) {
+                    d.resolve(result.slice(-n)
+                        .sort(function (a, b) {
+                            var abn = parseInt(a.blockNumber, 16);
+                            var bbn = parseInt(b.blockNumber, 16);
+
+                            if (abn > bbn) return 1;
+                            if (abn < bbn) return -1;
+                            return 0;
+                        })
+                        .map(function (tx) {
+                            return {
+                                eth: web3.fromWei('0x' + tx.data.slice(66)),
+                                to: web3.fromDecimal(tx.data.slice(0,66))
+                            }
+                        }));
+                }
+            );
+
+            /**** Get events from node by web3 ****/
+            // this.loadStartBlock()
+            //     .then(function() { return lottery.loadLiveBlocks() })
+            //     .then(function() {
+            //         lottery.instance().Withdraw(null, {
+            //             fromBlock: _creationBlock,
+            //             toBlock: 'latest'
+            //         }).get(function(error,result) {
+            //             if (error) {
+            //                 d.reject(error);
+            //             } else {
+            //                 d.resolve(result.slice(-n)
+            //                     .sort(function(a, b) {
+            //                         if (a.blockNumber > b.blockNumber) return 1;
+            //                         if (a.blockNumber < b.blockNumber) return -1;
+            //                         return 0;
+            //                     })
+            //                     .map(function(tx) {
+            //                         return {
+            //                             eth: web3.fromWei(tx.args.eth.toNumber()),
+            //                             to: tx.args.to
+            //                         }
+            //                     }));
+            //             }
+            //         });
+            //     });
 
             return d.promise;
         };
-
-        // this.loadWinnings = function() {
-        //     return instance$call('getRecentWinnings').then(
-        //         function(result) { return lottery.winnings = result },
-        //         function() { lottery.winnings = ['error'] }
-        //     )
-        // };
-        //
-        // this.loadWinners = function() {
-        //     return instance$call('getRecentWinners').then(
-        //         function(result) {
-        //             lottery.winAddresses = new Array(result.length);
-        //             return lottery.winners = result
-        //         },
-        //         function() { lottery.winners = ['error'] }
-        //     )
-        // };
-        //
-        // this.loadWinnersAddresses = function() {
-        //     var d = $q.defer();
-        //
-        //     function loadWinner(n) {
-        //         instance$call('getTicketOwner', lottery.winners[n]).then(
-        //             function(result) {
-        //                 lottery.winAddresses[n] = result;
-        //
-        //                 if (++n < lottery.winners.length) {
-        //                     loadWinner(n);
-        //                 } else {
-        //                     d.resolve(lottery.winAddresses);
-        //                 }
-        //
-        //                 return result;
-        //             },
-        //             function() {
-        //                 lottery.winAddresses[n] = 'error'
-        //             }
-        //         ).finally(function() {
-        //             d.notify();
-        //         });
-        //     }
-        //
-        //     if (lottery.winners.length) {
-        //         loadWinner(0);
-        //     } else {
-        //         d.resolve(lottery.winAddresses)
-        //     }
-        //
-        //     return d.promise;
-        // };
 
         /**
          * Loads all lottery parameters from contract
@@ -274,6 +259,8 @@ randomApp.factory('Lottery', function($q, $log, web3) {
         this.load = function() {
             var d = $q.defer();
             $log.log('[Lottery] loading start: ' + this.name);
+
+            this.init();
 
             $q.all([
                 this.loadTicketsNum().then(d.notify),
@@ -304,7 +291,7 @@ randomApp.factory('Lottery', function($q, $log, web3) {
                 return d > 0 ? d : 0;
             }
 
-            return 0;
+            return null;
         };
 
         /**
@@ -325,6 +312,18 @@ randomApp.factory('Lottery', function($q, $log, web3) {
          */
         this.contract = function() { return _contract };
     }
+
+    Lottery.prototype.init = function () {
+        this.tickets = null;
+        this.endBlock = null;
+        this.startBlock = null;
+        this.liveBlocks = null;
+        this.prizeFund = null;
+        this.winAddresses = null;
+        this.jackpotA = null;
+        this.jackpotB = null;
+        this.jackpotC = null;
+    };
 
     return Lottery;
 });

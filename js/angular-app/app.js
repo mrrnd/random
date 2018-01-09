@@ -1,11 +1,12 @@
 var randomApp = angular.module('random', ['ngRoute', 'ngCookies'])
-    .run(function($rootScope, $location, $, $q, $log, Random, web3) {
+    .run(function($rootScope, $location, $, $q, $log, Random, web3, EtherscanAPI) {
         $rootScope.Random = Random;
         Random.loadAll();
 
         window.$web3 = web3;
         window.$daily = Random.lottery('daily');
         window.$q = $q;
+        window.$es = EtherscanAPI;
 
         $rootScope.init = function() {
             "use strict";

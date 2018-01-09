@@ -7,10 +7,10 @@ randomApp.controller('homeController', function ($scope, Random, $location) {
     };
 
     Random.lottery('daily').loadPrevLotteryWithdraws().then(function (result) {
-        console.log($scope.withdraws.daily = result);
+        $scope.withdraws.daily = result;
     });
 
     Random.lottery('daily').loadPrevLotteryRefills().then(function (result) {
-        console.log($scope.purchase.daily = result);
+        $scope.purchase.daily = result;
     })
 });

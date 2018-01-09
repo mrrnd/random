@@ -43,15 +43,16 @@
             <div class="lottery-slider" slick autoplay="false" dots="false" arrows="false">
               <div class="row">
                 <div class="col-sm-6 col-xs-12">
-                  <h4>Prize Fund: <span id="prize_fund_0" class="lottery-text" ng-bind="Random.lottery('daily').prizeFund + ' ETH'"></span></h4>
-                  <h4>Jackpot 1: <span id="jackpot_val_01" class="lottery-text" ng-bind="Random.lottery('daily').jackpotA + ' ETH'"></span></h4>
-                  <h4>Jackpot 2: <span id="jackpot_val_02" class="lottery-text" ng-bind="Random.lottery('daily').jackpotB + ' ETH'"></span></h4>
-                  <h4>Jackpot 3: <span id="jackpot_val_03" class="lottery-text" ng-bind="Random.lottery('daily').jackpotC + ' ETH'"></span></h4>
+                  <h4>Prize Fund: <span id="prize_fund_0" class="lottery-text" ng-class="{loader: Random.lottery('daily').prizeFund == null}" ng-bind="Random.lottery('daily').prizeFund + ' ETH'"></span></h4>
+                  <h4>Jackpot 1: <span id="jackpot_val_01" class="lottery-text" ng-class="{loader: Random.lottery('daily').jackpotA == null}" ng-bind="Random.lottery('daily').jackpotA + ' ETH'"></span></h4>
+                  <h4>Jackpot 2: <span id="jackpot_val_02" class="lottery-text" ng-class="{loader: Random.lottery('daily').jackpotB == null}" ng-bind="Random.lottery('daily').jackpotB + ' ETH'"></span></h4>
+                  <h4>Jackpot 3: <span id="jackpot_val_03" class="lottery-text" ng-class="{loader: Random.lottery('daily').jackpotC == null}" ng-bind="Random.lottery('daily').jackpotC + ' ETH'"></span></h4>
                 </div>
                 <div class="col-sm-6 col-xs-12">
-                  <h4>Tickets Sold: <span id="tickets_count_0" class="lottery-text" ng-bind="Random.lottery('daily').tickets"></span></h4>
-                  <h4>Your Tickets: <span id="tickets_purchased_0" class="lottery-text" ng-bind="Random.lottery('daily').addressTickets"></span></h4>
-                  <h4>Blocks left: <span class="lottery-text" ng-bind="Random.lottery('daily').blocksLeft(currenctBlock)"></span></h4>
+                  <h4>Tickets Sold: <span id="tickets_count_0" class="lottery-text" ng-class="{loader: Random.lottery('daily').tickets == null}" ng-bind="Random.lottery('daily').tickets"></span></h4>
+                  <h4>Your Tickets: <span id="tickets_purchased_0" class="lottery-text" ng-class="{loader: Random.lottery('daily').addressTickets == null}" ng-bind="Random.lottery('daily').addressTickets"></span></h4>
+                  <h4>Blocks left: <span class="lottery-text" ng-class="{loader: Random.lottery('daily').blocksLeft(currenctBlock) == null}" ng-bind="Random.lottery('daily').blocksLeft(currenctBlock)"></span></h4>
+                  <button class="btn-home" ng-click="reload()">Reload data</button>
                 </div>
               </div>
               <!--<div class="row">-->

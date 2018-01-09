@@ -15,6 +15,10 @@ randomApp.controller('joinController', function ($scope, $timeout, $interval, $c
         $slider.slick('slickGoTo', n);
     };
 
+    $scope.reload = function () {
+        Random.loadAll();
+    };
+
     $scope.getBalances = function () {
         $scope.errors['address'] = null;
 
