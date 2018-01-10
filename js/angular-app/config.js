@@ -11,5 +11,5 @@ randomApp.config(function($locationProvider, RandomProvider, web3Provider, Ether
 
     RandomProvider.addLottery('daily', '0xAd7E9b5b9d15f2B26464ecBE76065F033B126a6C', 4837532);
     RandomProvider.addLottery('weekly', '0xAd7E9b5b9d15f2B26464ecBE76065F033B126a6C', 4837532);
-    RandomProvider.addLottery('monthly', '0xAd7E9b5b9d15f2B26464ecBE76065F033B126a6C', 4837532);
+    RandomProvider.addLottery('monthly', '0x950E255c4362c7D7824c63911331BA0C3B090a52', 4879191);
 });

@@ -134,8 +134,7 @@
 <!-- section feature end -->
 
 <!-- DSP: blue slider -->
-<!--<section slick autoplay="false" dots="true" arrows="true" as-nav-for="#lottery-slider-tx" id="lottery-slider" class="blue-page slider">-->
-<section slick autoplay="false" dots="true" arrows="true" id="lottery-slider" class="blue-page slider">
+<section slick autoplay="false" dots="true" arrows="true" as-nav-for="#lottery-slider-tx" id="lottery" class="blue-page slider">
   <div class="slide">
     <div class="slide-content">
       <div>
@@ -155,7 +154,7 @@
       </div>
       <div class="text-center">
         <h2 class="big">Jackpot</h2>
-        <h1 ng-bind="Random.lottery('daily').jackpotA + ' ETH'"></h1>
+        <h1 ng-bind="Random.daily.jackpotA + ' ETH'"></h1>
 
         <div class="btn-home" data-animation="fadeInUp" data-time="0" ng-click="toJoin()">JOIN</div>
       </div>
@@ -204,8 +203,9 @@
       </div>
       <div class="text-center">
         <h2 class="big">Jackpot</h2>
-        <!--h1 ng-bind="Random.lottery('monthly').jackpotA + ' ETH'"></h1-->
-        <h1>Cooming soon</h1>
+        <h1 ng-bind="Random.monthly.jackpotA + ' ETH'"></h1>
+
+        <div class="btn-home" data-animation="fadeInUp" data-time="0" ng-click="toJoin()">JOIN</div>
       </div>
     </div>
   </div>
@@ -213,47 +213,17 @@
 <!-- DSP: blue slider end -->
 
 <section class="blue-page">
-  <div slick autoplay="false" dots="false" as-nav-for="#lottery-slider" arrows="false" id="lottery-slider-tx" class="container slider-tx">
+  <h1 class="text-center onStep" data-animation="fadeInUp" data-time="0">TX HISTORY <span class="devider-cont"></span></h1>
+  <div slick autoplay="false" dots="false" as-nav-for="#lottery" arrows="false" id="lottery-slider-tx" class="container slider-tx">
+    <tx-history withdraws="withdraws.daily" purchases="purchase.daily"></tx-history>
+
     <div>
-      <!-- <h1 class="text-center onStep" data-animation="fadeInUp" data-time="0">TX HISTORY <span class="devider-cont"></span></h1>
-
-      <div class="text-center" style="color: black">
-        <h3><a target="_blank" class="btn-home" style="width: auto; padding-left: 20px; padding-right: 20px" href="https://etherscan.io/address/0xAd7E9b5b9d15f2B26464ecBE76065F033B126a6C">View TX history at Etherscan</a></h3>
-      </div> -->
-      <h3>Tickets purchase</h3>
-      <table class="table">
-        <thead>
-        <tr><td>Address</td><td>ETH</td></tr>
-        </thead>
-        <tbody>
-        <tr ng-repeat="tx in purchase.daily track by $index"><td ng-bind="tx.sender"></td><td ng-bind="tx.eth"></td></tr>
-        </tbody>
-      </table>
-
-      <h3>Winnings</h3>
-      <table class="table">
-        <thead>
-        <tr><td>Address</td><td>ETH</td></tr>
-        </thead>
-        <tbody>
-        <tr ng-repeat="tx in withdraws.daily track by $index"><td ng-bind="tx.to"></td><td ng-bind="tx.eth"></td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div>
-      <h1 class="text-center onStep" data-animation="fadeInUp" data-time="0">TX HISTORY <span class="devider-cont"></span></h1>
-
       <div class="text-center" style="color: black">
         <h3><a class="btn-home" style="width: auto; padding-left: 20px; padding-right: 20px" href="https://etherscan.io/address/0x40ad13badf747717683905bfa4ac8b9b6f0093fc">View TX history at Etherscan</a></h3>
       </div>
     </div>
-    <div>
-      <h1 class="text-center onStep" data-animation="fadeInUp" data-time="0">TX HISTORY <span class="devider-cont"></span></h1>
 
-      <div class="text-center" style="color: black">
-        <h3><a class="btn-home" style="width: auto; padding-left: 20px; padding-right: 20px" href="https://etherscan.io/address/0x40ad13badf747717683905bfa4ac8b9b6f0093fc">View TX history at Etherscan</a></h3>
-      </div>
-    </div>
+    <tx-history withdraws="withdraws.monthly" purchases="purchase.monthly"></tx-history>
   </div>
 </section>
 

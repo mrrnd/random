@@ -1,12 +1,6 @@
 var randomApp = angular.module('random', ['ngRoute', 'ngCookies'])
-    .run(function($rootScope, $location, $, $q, $log, Random, web3, EtherscanAPI) {
+    .run(function($rootScope, $location, $, $q, $log, Random, web3) {
         $rootScope.Random = Random;
-        Random.loadAll();
-
-        window.$web3 = web3;
-        window.$daily = Random.lottery('daily');
-        window.$q = $q;
-        window.$es = EtherscanAPI;
 
         $rootScope.init = function() {
             "use strict";
@@ -39,17 +33,23 @@ var randomApp = angular.module('random', ['ngRoute', 'ngCookies'])
                 // scroll navigation
                 if ($win.width() < 1025) {
                     Slink.on('click', function (event) {
-                        event.preventDefault();
-                        var sectionID = $(this).attr("data-id");
-                        scrollToID('#' + sectionID, 600);
-                        menumobile.removeClass('menu-show');
-                        navdefault.removeClass('fullHeight');
+                        var selector = '#' + $(this).attr("data-id");
+
+                        if ($(selector).length) {
+                            event.preventDefault();
+                            scrollToID(selector, 600);
+                            menumobile.removeClass('menu-show');
+                            navdefault.removeClass('fullHeight');
+                        }
                     });
                 } else {
                     Slink.on('click', function (event) {
-                        event.preventDefault();
-                        var sectionID = $(this).attr("data-id");
-                        scrollToID('#' + sectionID, 600);
+                        var selector = '#' + $(this).attr("data-id");
+
+                        if ($(selector).length) {
+                            event.preventDefault();
+                            scrollToID(selector, 600);
+                        }
                     });
                 }
 
@@ -64,7 +64,7 @@ var randomApp = angular.module('random', ['ngRoute', 'ngCookies'])
                 function scrollToID(id, speed) {
                     var offSet = 50;
                     var targetOffset = $(id).offset().top - offSet;
-                    bodyScroll.animate({scrollTop: targetOffset}, speed);
+                    bodyScroll.stop().clearQueue().animate({scrollTop: targetOffset}, speed);
                 }
 
 

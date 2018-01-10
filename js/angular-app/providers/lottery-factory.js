@@ -72,7 +72,7 @@ randomApp.factory('Lottery', function($q, $log, $http, web3, EtherscanAPI) {
         this.loadAddressTickets = function(userAddress) {
            return instance$call('getTicketsCount', userAddress).then(
                // function(result) { return lottery.addressTickets = result.toNumber() },
-               function(result) { return result.toNumber() },
+               function(result) { return lottery.addressTickets = result.toNumber() },
                function() { lottery.addressTickets = 'error' });
         };
 
@@ -265,7 +265,6 @@ randomApp.factory('Lottery', function($q, $log, $http, web3, EtherscanAPI) {
             $q.all([
                 this.loadTicketsNum().then(d.notify),
                 this.loadJackpotA().then(d.notify),
-                // this.loadCountWinner().then(d.notify),
                 this.loadJackpotB().then(d.notify),
                 this.loadJackpotC().then(d.notify),
                 this.loadEndBock().then(d.notify),

@@ -1,7 +1,7 @@
 randomApp.controller('joinController', function ($scope, $timeout, $interval, $cookies, $log, $window, web3, Random) {
     var $slider = $('.lottery-slider');
 
-    $scope.slidesOrder = ['daily', 'weekly', 'monthly'];
+    $scope.slidesOrder = ['daily', 'monthly'];
     $scope.address = $cookies.get('user_address') || '';
     $scope.accountBalance = null;
     $scope.amount = 1;
@@ -9,7 +9,6 @@ randomApp.controller('joinController', function ($scope, $timeout, $interval, $c
     $scope.currentSlide = 0;
     $scope.Random = Random;
     $scope.errors = {};
-    $scope.ticketsAt = {};
 
     $scope.goTo = function(n) {
         $slider.slick('slickGoTo', n);
@@ -17,6 +16,12 @@ randomApp.controller('joinController', function ($scope, $timeout, $interval, $c
 
     $scope.reload = function () {
         Random.loadAll();
+
+        if ($scope.address) {
+            Random.daily.loadAddressTickets($scope.address);
+            Random.weekly.loadAddressTickets($scope.address);
+            Random.monthly.loadAddressTickets($scope.address);
+        }
     };
 
     $scope.getBalances = function () {
@@ -38,22 +43,7 @@ randomApp.controller('joinController', function ($scope, $timeout, $interval, $c
             }
         });
 
-        Random.lottery('daily').loadTicketsNum().then(function(result) {
-            $scope.ticketsAt.daily = result;
-        });
-
-        Random.lottery('daily').loadAddressTickets($scope.address).then(function(result) {
-            // $scope.ticketsAt.daily = result;
-            Random.lottery('daily').addressTickets = result;
-        });
-
-        Random.lottery('weekly').loadAddressTickets($scope.address).then(function(result) {
-            $scope.ticketsAt.weekly = result;
-        });
-
-        Random.lottery('monthly').loadAddressTickets($scope.address).then(function(result) {
-            $scope.ticketsAt.monthly = result;
-        });
+        $scope.reload();
     };
 
     $scope.calcSum = function() {
@@ -90,5 +80,5 @@ randomApp.controller('joinController', function ($scope, $timeout, $interval, $c
         $log.log('[web3] Current block:', result);
     });
 
-    $scope.address && $scope.getBalances();
+    $scope.reload();
 });

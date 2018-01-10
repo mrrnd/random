@@ -1,0 +1,25 @@
+<h2 class="text-center" ng-hide="purchases.length || withdraws.lenght">No transactions yet</h2>
+
+<div ng-if="purchases.length || withdraws.lenght">
+  <h3>Tickets purchase</h3>
+  <h4 ng-show="!purchases.length">No token purchases yet</h4>
+  <table class="table" ng-if="purchases.length">
+    <thead>
+    <tr><td>Address</td><td>ETH</td></tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="tx in purchases track by $index"><td ng-bind="tx.sender"></td><td ng-bind="tx.eth"></td></tr>
+    </tbody>
+  </table>
+
+  <h3>Winnings</h3>
+  <h4 ng-show="!withdraws.length">No winnings yet</h4>
+  <table class="table" ng-if="withdraws.length">
+    <thead>
+    <tr><td>Address</td><td>ETH</td></tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="tx in withdraws track by $index"><td ng-bind="tx.to"></td><td ng-bind="tx.eth"></td></tr>
+    </tbody>
+  </table>
+</div>

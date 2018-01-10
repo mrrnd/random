@@ -65,7 +65,7 @@ randomApp.provider('Random', function () {
                 loadAll: function() {
                     var self = this;
                     Object.keys(_addresses).forEach(function (name) {
-                        self.lottery(name).load();
+                        (self[name] = self.lottery(name)).load();
                     })
                 }
             }

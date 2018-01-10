@@ -1,4 +1,6 @@
 randomApp.controller('homeController', function ($scope, Random, $location) {
+    Random.loadAll();
+
     $scope.withdraws = {};
     $scope.purchase = {};
 
@@ -6,11 +8,8 @@ randomApp.controller('homeController', function ($scope, Random, $location) {
         $location.path('/join')
     };
 
-    Random.lottery('daily').loadPrevLotteryWithdraws().then(function (result) {
-        $scope.withdraws.daily = result;
-    });
-
-    Random.lottery('daily').loadPrevLotteryRefills().then(function (result) {
-        $scope.purchase.daily = result;
-    })
+    Random.daily.loadPrevLotteryWithdraws().then(function (result) { $scope.withdraws.daily = result });
+    Random.daily.loadPrevLotteryRefills().then(function (result) { $scope.purchase.daily = result });
+    Random.monthly.loadPrevLotteryWithdraws().then(function (result) { $scope.withdraws.monthly = result });
+    Random.monthly.loadPrevLotteryRefills().then(function (result) { $scope.purchase.monthly = result });
 });
