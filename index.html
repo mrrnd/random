@@ -82,12 +82,12 @@
         <div class="menu-init" id="main-menu">
           <nav>
             <ul>
-              <!--<li><a class="scroll-link active onStep" data-animation="fadeInRight" data-time="600" data-id="home" data-hover="News">NEWS</a></li>-->
-              <li><a ng-href="#!/" class="onStep" data-animation="fadeInRight" data-time="700" data-hover="Home">HOME</a></li>
-              <li><a ng-if="onPath('/')" class="scroll-link onStep" data-animation="fadeInRight" data-time="800" data-id="about" data-hover="About">ABOUT</a></li>
-              <li><a ng-if="onPath('/')" class="scroll-link onStep" data-animation="fadeInRight" data-time="900" data-id="lottery-slider" data-hover="Lottery">LOTTERY</a></li>
-              <li><a class="onStep" data-animation="fadeInRight" data-time="900" href="https://github.com/mrrnd/random" target="_blank" data-hover="Github">GITHUB</a></li>
-              <li><a ng-href="#!/join" data-animation="fadeInRight" data-time="1000" data-hover="Join" data-toggle="modal">JOIN</a></li>
+              <li><a ng-href="#!/#home" class="scroll-link onStep" data-animation="fadeInRight" data-time="700" data-id="home" data-hover="Home">HOME</a></li>
+              <li><a ng-href="#!/#about" class="scroll-link onStep" data-animation="fadeInRight" data-time="800" data-id="about" data-hover="About">ABOUT</a></li>
+              <li><a ng-href="#!/#lottery" class="scroll-link onStep" data-animation="fadeInRight" data-time="900" data-id="lottery" data-hover="Lottery">LOTTERY</a></li>
+              <li><a ng-href="#!/faq" class="onStep" data-animation="fadeInRight" data-time="1000" data-hover="FAQ">FAQ</a></li>
+              <li><a href="https://github.com/mrrnd/random" class="onStep" data-animation="fadeInRight" data-time="1100" target="_blank" data-hover="GITHUB">GITHUB</a></li>
+              <li><a ng-href="#!/join" class="onStep" data-animation="fadeInRight" data-time="1100" data-hover="JOIN">JOIN</a></li>
             </ul>
           </nav>
         </div>
@@ -107,7 +107,7 @@
       <div class="row">
         <div class="col-md-6 col-xs-12">
           <div class="onStep" data-animation="fadeInRight" data-time="0">
-            Random &copy; Copyright 2017
+            Random &copy; Copyright <script>document.write(new Date().getFullYear())</script>
           </div>
         </div>
         <div class="col-md-6">
@@ -144,6 +144,7 @@
 <script src="js/angular.min.js" type="text/javascript"></script>
 <script src="js/angular-route.min.js" type="text/javascript"></script>
 <script src="js/angular-cookies.min.js" type="text/javascript"></script>
+<script src="js/faq-strings.js" type="text/javascript"></script>
 
 <!-- Angular application -->
 <script src="js/angular-app/app.js" type="text/javascript"></script>
@@ -155,8 +156,11 @@
 <script src="js/angular-app/providers/lottery-factory.js" type="text/javascript"></script>
 <script src="js/angular-app/providers/random-provider.js" type="text/javascript"></script>
 <script src="js/angular-app/directives/slick-slider.js" type="text/javascript"></script>
+<script src="js/angular-app/directives/tx-history.js" type="text/javascript"></script>
+<script src="js/angular-app/directives/faq-collapse.js" type="text/javascript"></script>
 <script src="js/angular-app/controllers/home-controller.js" type="text/javascript"></script>
 <script src="js/angular-app/controllers/join-controller.js" type="text/javascript"></script>
+<script src="js/angular-app/controllers/faq-controller.js" type="text/javascript"></script>
 <!-- // Angular application -->
 
 <!--<script src="js/black.js" type="text/javascript"></script>-->
