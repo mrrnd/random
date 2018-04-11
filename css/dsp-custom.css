@@ -304,3 +304,22 @@ input[type="number"] {
   /*border: 1px solid white;*/
   /*border-radius: 10px;*/
 /*}*/
+
+nav.faq ul li {
+  display: block;
+  /*padding-bottom: 20px;*/
+}
+
+nav.faq ul li p {
+  padding: 0 10px;
+  white-space: pre-wrap;
+}
+
+nav.faq ul li p a {
+  display: inline;
+  font-size: inherit;
+  line-height: inherit;
+  padding: 0;
+  letter-spacing: inherit;
+  text-transform: none;
+}

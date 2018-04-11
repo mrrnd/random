@@ -422,14 +422,17 @@ padding:0;
 
 /* menu nav */
 nav {
-	position:absolute;
-	top:30px;
-	right:50px;
 	color:#efefef;
-	z-index:999;
 	-webkit-transition : all .3s ease-in-out;
     -moz-transition    : all .3s ease-in-out;
     transition         : all .3s ease-in-out;
+}
+
+#main-menu nav {
+	position:absolute;
+	top:30px;
+	right:50px;
+	z-index:999;
 }
 
 nav ul {
