@@ -8,5 +8,9 @@ randomApp.config(function($routeProvider) {
             templateUrl: 'pages/join.html',
             controller:  'joinController'
         })
+        .when('/faq', {
+            templateUrl: 'pages/faq.html',
+            controller:  'faqController'
+        })
         .otherwise({ redirectTo: '/' });
 });
