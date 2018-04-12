@@ -40,9 +40,8 @@ Random smart-contract contains:
 	reward accruing
 	- `event Transfer(address indexed from, address indexed to, uint value)`
 	sending ticket to another address
-	- `event TransferError(address indexed to, uint value); // event (error)
-	sending ETH from the contract was failed
-
+	- `event TransferError(address indexed to, uint value)` 
+	event (error) sending ETH from the contract was failed
 
 - Modifiers:
 	- `modifier onlyManager()`
