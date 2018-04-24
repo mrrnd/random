@@ -414,11 +414,17 @@ padding:0;
     -moz-transition    : all .3s ease-in-out;
     transition         : all .3s ease-in-out;
 	}
-	
-	.sticky-nav .navbar-brand{position:absolute; top:0px;}
-	.sticky-nav nav{top:10px; -webkit-transition : all .3s ease-in-out;
+
+	.sticky-nav #main-menu .navbar-brand {
+		position:absolute;
+		top:0px;
+	}
+	.sticky-nav #main-menu nav{
+		top:10px;
+		-webkit-transition : all .3s ease-in-out;
     -moz-transition    : all .3s ease-in-out;
-    transition         : all .3s ease-in-out;}
+    transition         : all .3s ease-in-out;
+	}
 
 /* menu nav */
 nav {
@@ -490,7 +496,7 @@ nav a.active{color:rgba(255,255,255,.5);}
 nav ul ul {
     display:none;
 	position: absolute;
-	top: 65px;
+	/*top: 65px;*/
 	color:#efefef;
 }
 
