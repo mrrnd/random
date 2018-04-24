@@ -85,7 +85,13 @@
               <li><a ng-href="#!/#home" class="scroll-link onStep" data-animation="fadeInRight" data-time="700" data-id="home" data-hover="Home">HOME</a></li>
               <li><a ng-href="#!/#about" class="scroll-link onStep" data-animation="fadeInRight" data-time="800" data-id="about" data-hover="About">ABOUT</a></li>
               <li><a ng-href="#!/#lottery" class="scroll-link onStep" data-animation="fadeInRight" data-time="900" data-id="lottery" data-hover="Lottery">LOTTERY</a></li>
-              <li><a ng-href="#!/faq" class="onStep" data-animation="fadeInRight" data-time="1000" data-hover="FAQ">FAQ</a></li>
+              <li>
+                <a href="javascript: void(0)" class="onStep" data-animation="fadeInRight" data-time="1000" data-hover="FAQ">FAQ</a>
+                <ul>
+                  <li><a ng-href="#!/faq-random" class="onStep" data-animation="fadeInRight" data-time="1000" data-hover="FAQ">RANDOM FAQ</a></li>
+                  <li><a ng-href="#!/faq-rinvest" class="onStep" data-animation="fadeInRight" data-time="1000" data-hover="FAQ">RINVEST FAQ</a></li>
+                </ul>
+              </li>
               <li><a href="https://github.com/mrrnd/random" class="onStep" data-animation="fadeInRight" data-time="1100" target="_blank" data-hover="GITHUB">GITHUB</a></li>
               <li><a ng-href="#!/join" class="onStep" data-animation="fadeInRight" data-time="1100" data-hover="JOIN">JOIN</a></li>
             </ul>
@@ -133,6 +139,31 @@
 </div>
 <!-- content wraper end -->
 
+<div class="modal fade" tabindex="-1" id="rinvest-popup" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h5>1 RINVEST (+1 Bonus RINVEST) = 1 ETH</h5>
+        <p>For purchasing RINVEST follow the instructions:</p>
+        <ol>
+          <li>1. Send ETH from your Myetherwallet (MEW) to the Random contract address: 0x1d9Ed8e4c1591384A4b2fbd005ccCBDc58501cc0</li>
+          <li>2. After the payment RINVEST tokens will be send automatically to the ETH wallet from which the payment was committed</li>
+        </ol>
+        <p>
+          To check the tokens on your Myetherwallet click "Add Custom Token" and enter the following data:<br />
+          Token Contract Address: 0x1d9Ed8e4c1591384A4b2fbd005ccCBDc58501cc0<br />
+          Token Symbol: RINVEST<br />
+          Decimals: 0
+        </p>
+      </div>
+      <div class="modal-footer">
+        <a ng-href="#!/faq-rinvest" type="button" class="btn-home">WHAT IS RINVEST?</a>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
 <!-- plugin JS -->
 <script src="plugin/pluginsblack.js" type="text/javascript"></script>
 <!-- black JS -->
@@ -144,23 +175,30 @@
 <script src="js/angular.min.js" type="text/javascript"></script>
 <script src="js/angular-route.min.js" type="text/javascript"></script>
 <script src="js/angular-cookies.min.js" type="text/javascript"></script>
-<script src="js/faq-strings.js" type="text/javascript"></script>
+<script src="js/faq-random-strings.js" type="text/javascript"></script>
+<script src="js/faq-rinvest-strings.js" type="text/javascript"></script>
 
 <!-- Angular application -->
 <script src="js/angular-app/app.js" type="text/javascript"></script>
 <script src="js/angular-app/config.js" type="text/javascript"></script>
 <script src="js/angular-app/routes.js" type="text/javascript"></script>
+
 <script src="js/angular-app/providers/jquery-factory.js" type="text/javascript"></script>
 <script src="js/angular-app/providers/web3-provider.js" type="text/javascript"></script>
 <script src="js/angular-app/providers/etherscan-api-provider.js" type="text/javascript"></script>
 <script src="js/angular-app/providers/lottery-factory.js" type="text/javascript"></script>
 <script src="js/angular-app/providers/random-provider.js" type="text/javascript"></script>
+
 <script src="js/angular-app/directives/slick-slider.js" type="text/javascript"></script>
 <script src="js/angular-app/directives/tx-history.js" type="text/javascript"></script>
 <script src="js/angular-app/directives/faq-collapse.js" type="text/javascript"></script>
+
+<script src="js/angular-app/components/counter.js" type="text/javascript"></script>
+
 <script src="js/angular-app/controllers/home-controller.js" type="text/javascript"></script>
 <script src="js/angular-app/controllers/join-controller.js" type="text/javascript"></script>
-<script src="js/angular-app/controllers/faq-controller.js" type="text/javascript"></script>
+<script src="js/angular-app/controllers/faq-random-controller.js" type="text/javascript"></script>
+<script src="js/angular-app/controllers/faq-rinvest-controller.js" type="text/javascript"></script>
 <!-- // Angular application -->
 
 <!--<script src="js/black.js" type="text/javascript"></script>-->
