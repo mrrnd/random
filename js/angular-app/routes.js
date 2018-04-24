@@ -8,9 +8,13 @@ randomApp.config(function($routeProvider) {
             templateUrl: 'pages/join.html',
             controller:  'joinController'
         })
-        .when('/faq', {
+        .when('/faq-random', {
             templateUrl: 'pages/faq.html',
-            controller:  'faqController'
+            controller:  'faqRandomController'
+        })
+        .when('/faq-rinvest', {
+            templateUrl: 'pages/faq.html',
+            controller:  'faqRinvestController'
         })
         .otherwise({ redirectTo: '/' });
 });
